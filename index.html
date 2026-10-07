@@ -3,158 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C팀 K-Beauty 쇼핑몰 A/B 테스트 실험 페이지</title>
+    <title>K-Beauty x CLIO Mall</title>
     <style>
-        /* 기본 스타일 설정 */
+        /* Cấu hình phong cách tối giản Olive Young (Nền trắng) */
         body {
-            font-family: 'Malgun Gothic', apple-system, sans-serif;
+            font-family: 'Malgun Gothic', apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #ffffff;
+            color: #000000;
         }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 30px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #ff4e79; /* K-Beauty 느낌의 핑크 톤 */
-            font-size: 28px;
-            border-bottom: 2px solid #ffe4ec;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
-        }
-        .intro {
-            background-color: #f0f7ff;
-            padding: 20px;
-            border-left: 5px solid #007bff;
-            border-radius: 4px;
-            margin-bottom: 35px;
-            font-size: 15px;
-        }
-        .experiment-section {
-            background: #fff;
-            border: 1px solid #e1e1e1;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-        h2 {
-            font-size: 20px;
-            color: #2c3e50;
-            margin-top: 0;
+
+        /* Thanh điều hướng / Header */
+        header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 8px;
-        }
-        p {
-            font-size: 15px;
-            color: #555;
-        }
-        
-        /* 버튼 및 배너 스타일 (실험 대상 요소들) */
-        .btn-container, .banner-container {
-            margin-top: 20px;
-            padding: 20px;
-            background: #fafafa;
-            border: 1px dashed #ccc;
-            border-radius: 6px;
-            text-align: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #f2f2f2;
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* [실험 1] 회원가입 버튼 스타일 */
-        /* 기본 A안 상태이며, VWO 등에서 B안 적용 시 클래스나 텍스트를 변경할 수 있도록 ID를 부여했습니다. */
-        #signup-button {
-            background-color: #333;
-            color: white;
-            padding: 12px 30px;
-            font-size: 16px;
+        .logo {
+            font-size: 24px;
             font-weight: bold;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        #signup-button:hover {
-            background-color: #555;
+            letter-spacing: 2px;
+            color: #000000;
         }
 
-        /* [실험 2] 메인 배너 스타일 */
-        /* 기본 A안: 정적 이미지 느낌의 배너 */
-        /* B안 테스트 시 애니메이션 효과(동적 배너)를 주기 위해 원본 스타일을 잡아두었습니다. */
-        #main-banner {
+        .logo span {
+            color: #f43142; /* Màu cam hồng đặc trưng Olive Young */
+        }
+
+        /* Khu vực Banner Động (Clio Cosmetics Showcase) */
+        .banner-container {
+            position: relative;
             width: 100%;
-            max-width: 500px;
-            height: 180px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            color: #fff;
+            height: 480px;
+            overflow: hidden;
+            background-color: #f9f9f9;
+        }
+
+        /* Hiệu ứng chuyển động chạy liên tục cho Banner */
+        .banner-slider {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slideAnimation 15s infinite ease-in-out;
+        }
+
+        .slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Sử dụng hình ảnh tượng trưng cho mỹ phẩm CLIO cao cấp */
+        .slide1 { background-image: url('https://unsplash.com'); }
+        .slide2 { background-image: url('https://unsplash.com'); }
+        .slide3 { background-image: url('https://unsplash.com'); }
+
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.15); /* Làm mờ nhẹ nền để nổi chữ */
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            padding-left: 8%;
+            color: #ffffff;
         }
-        #main-banner h3 { margin: 0 0 10px 0; font-size: 22px; }
-        #main-banner p { margin: 0; color: #fff; font-size: 14px; }
 
-        /* (참고) 만약 B안(동적 배너)을 코드로 직접 테스트하고 싶다면 아래 주석(//)을 지우거나 VWO 설정에 추가하면 됩니다. */
-        /* 
-        #main-banner.dynamic-version {
-            animation: pulse 2s infinite alternate;
+        .banner-overlay h2 {
+            font-size: 42px;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-            100% { transform: scale(1.03); box-shadow: 0 8px 20px rgba(255, 78, 121, 0.2); }
+
+        .banner-overlay p {
+            font-size: 18px;
+            margin: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
-        */
+
+        /* Định nghĩa hoạt ảnh trượt mượt mà */
+        @keyframes slideAnimation {
+            0%, 28% { transform: translateX(0); }
+            33%, 61% { transform: translateX(-33.33%); }
+            66%, 95% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Phần thân nội dung & Nút nhận Voucher nổi bật giống Olive Young */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .voucher-box {
+            background-color: #ffffff;
+            border: 2px solid #000000;
+            border-radius: 16px;
+            padding: 40px 30px;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 500px;
+            width: 100%;
+            margin-top: -80px; /* Đẩy hộp đăng ký đè nhẹ lên banner tăng độ nổi bật */
+            position: relative;
+            z-index: 10;
+        }
+
+        .voucher-badge {
+            background-color: #f43142;
+            color: white;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .voucher-box h3 {
+            font-size: 26px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .voucher-box p {
+            color: #666666;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        /* Thiết kế nút bấm Olive Young nổi bật */
+        .btn-register {
+            background-color: #93b93a; /* Màu xanh Olive lục đặc trưng */
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(147, 185, 58, 0.4);
+            display: inline-block;
+            text-decoration: none;
+            width: 80%;
+        }
+
+        .btn-register:hover {
+            background-color: #f43142; /* Đổi sang màu cam san hô Olive Young khi rê chuột vào */
+            box-shadow: 0 5px 15px rgba(244, 49, 66, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Sản phẩm mẫu bên dưới */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            text-align: left;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            height: 250px;
+            background-color: #f5f5f5;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-brand {
+            font-size: 12px;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .product-title {
+            font-size: 15px;
+            margin: 5px 0;
+            font-weight: normal;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #f43142;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- 상단 타이틀 및 C팀 기획 배경 설명 -->
-        <h1>C팀 K-Beauty 쇼핑몰 최적화 프로젝트</h1>
-        <div class="intro">
-            최근 K-Beauty 시장의 성장과 함께 이커머스 경쟁이 치열해지면서, 단순한 방문자 수 증가보다는 실제 고객의 관심과 행동 변화를 이끌어내는 쇼핑몰 환경 최적화가 무엇보다 중요해졌습니다. 이에 따라 저희 C팀은 쇼핑몰의 핵심 전환 지점인 회원가입 혜택과 메인 배너 형태가 고객 행동에 미치는 영향을 검증하고자 두 가지 A/B 테스트를 설계했습니다.
-        </div>
+    <!-- Header điều hướng -->
+    <header>
+        <div class="logo">K-BEAUTY <span>CLIO</span></div>
+        <div>MALL A/B TESTING</div>
+    </header>
 
-        <!-- 첫 번째 실험 세션: 회원가입 혜택 -->
-        <div class="experiment-section">
-            <h2>💡 실험 1: 회원가입 혜택 테스트</h2>
-            <p><strong>가설:</strong> 가입 혜택으로 10% 할인을 제공하면 신규 방문자의 관심이 높아져 회원가입 전환율이 상승할 것이다.</p>
-            <p>• <strong>A안:</strong> 혜택 없는 기본 회원가입 버튼<br>
-               • <strong>B안:</strong> [VWO 등 도구로 수정 예정] 10% 할인 쿠폰 문구 추가</p>
-            
-            <!-- 분석도구(클릭률 측정)를 위한 ID와 인터랙션 요소 -->
-            <div class="btn-container">
-                <button id="signup-button">회원가입 하고 시작하기</button>
+    <!-- Banner động trượt ngang tự động -->
+    <div class="banner-container">
+        <div class="banner-slider">
+            <div class="slide slide1">
+                <div class="banner-overlay">
+                    <h2>CLIO NEW COLLECTION</h2>
+                    <p>Khám phá phong cách trang điểm thời thượng từ Seoul.</p>
+                </div>
             </div>
-        </div>
-
-        <!-- 두 번째 실험 세션: 메인 배너 형태 -->
-        <div class="experiment-section">
-            <h2>✨ 실험 2: 메인 배너 형태 테스트</h2>
-            <p><strong>가설:</strong> 배너를 동적으로 변경하면 시각적 몰입감을 높여 정적 배너보다 고객의 클릭률과 페이지 체류 시간을 더 높일 것이다.</p>
-            <p>• <strong>A안:</strong> 기존의 정적인 이미지 배너<br>
-               • <strong>B안:</strong> [VWO 등 도구로 수정 예정] 시각적 효과(애니메이션)를 더한 동적 배너</p>
-            
-            <!-- 분석도구(클릭 및 체류시간 측정)를 위한 ID와 배너 요소 -->
-            <div class="banner-container">
-                <div id="main-banner">
-                    <h3>K-Beauty NEW ARRIVAL</h3>
-                    <p>올 가을 가장 빛나는 피부를 위한 신상품 출시 ＞</p>
+            <div class="slide slide2">
+                <div class="banner-overlay">
+                    <h2>KILL COVER FOUNDATION</h2>
+                    <p>Lớp nền hoàn hảo không tì vết suốt 72 giờ.</p>
+                </div>
+            </div>
+            <div class="slide slide3">
+                <div class="banner-overlay">
+                    <h2>PRO EYE PALETTE</h2>
+                    <p>Bảng màu mắt đỉnh cao cho mọi khoảnh khắc.</p>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Vùng nội dung chính -->
+    <div class="content-section">
+        
+        <!-- Hộp nhận Voucher 10% nổi bật phong cách Olive Young -->
+        <div class="voucher-box">
+            <div class="voucher-badge">WELCOME BENEFIT</div>
+            <h3>Đăng ký thành viên mới</h3>
+            <p>Nhận ngay mã giảm giá giảm 10% áp dụng cho toàn bộ mỹ phẩm CLIO</p>
+            <button class="btn-register" onclick="alert('Đăng ký thành công! Mã Voucher 10% của bạn là: WELCOMECLIO10')">
+                ĐĂNG KÝ NHẬN VOUCHER 10%
+            </button>
+        </div>
+
+        <!-- Danh sách sản phẩm bổ trợ bên dưới -->
+        <h2 style="margin-top: 60px; text-align: left; font-size: 24px;">Sản phẩm bán chạy</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-info">
+                    <div class="product-brand">CLIO</div>
+                    <div class="product-title">Phấn nước Kill Cover Mesh Glow Cushion</div>
+                    <div class="product-price">32.000 Won</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-info">
+                    <div class="product-brand">CLIO</div>
+                    <div class="product-title">Bảng màu mắt Pro Eye Palette Air</div>
+                    <div class="product-price">34.000 Won</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </body>
