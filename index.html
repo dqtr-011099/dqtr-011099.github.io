@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K-Beauty x CLIO Mall</title>
+    <title>K-Beauty Mall A/B Testing</title>
     <style>
-        /* Cấu hình phong cách tối giản Olive Young (Nền trắng) */
+        /* 올리브영 스타일의 미니멀리즘 및 가독성 중심 기본 설정 */
         body {
             font-family: 'Malgun Gothic', apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
@@ -15,7 +15,7 @@
             color: #000000;
         }
 
-        /* Thanh điều hướng / Header */
+        /* 내비게이션 바 / 헤더 */
         header {
             display: flex;
             justify-content: space-between;
@@ -36,19 +36,19 @@
         }
 
         .logo span {
-            color: #f43142; /* Màu cam hồng đặc trưng Olive Young */
+            color: #93b93a; /* 올리브영 시그니처 그린 컬러 */
         }
 
-        /* Khu vực Banner Động (Clio Cosmetics Showcase) */
+        /* 상품 중심의 역동적인 메인 배너 구역 */
         .banner-container {
             position: relative;
             width: 100%;
-            height: 480px;
+            height: 520px;
             overflow: hidden;
             background-color: #f9f9f9;
         }
 
-        /* Hiệu ứng chuyển động chạy liên tục cho Banner */
+        /* 슬라이더 좌우 무한 반복 애니메이션 설정 */
         .banner-slider {
             display: flex;
             width: 300%;
@@ -64,7 +64,7 @@
             position: relative;
         }
 
-        /* Sử dụng hình ảnh tượng trưng cho mỹ phẩm CLIO cao cấp */
+        /* 고화질 K-뷰티 스킨케어 및 메이크업 실물 상품 이미지 연동 */
         .slide1 { background-image: url('https://unsplash.com'); }
         .slide2 { background-image: url('https://unsplash.com'); }
         .slide3 { background-image: url('https://unsplash.com'); }
@@ -75,7 +75,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.15); /* Làm mờ nhẹ nền để nổi chữ */
+            background: rgba(0, 0, 0, 0.35); /* 텍스트 시인성을 위한 소프트 음영 */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -84,19 +84,21 @@
         }
 
         .banner-overlay h2 {
-            font-size: 42px;
-            margin: 0 0 10px 0;
+            font-size: 46px;
+            margin: 0 0 12px 0;
             font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            letter-spacing: -1px;
         }
 
         .banner-overlay p {
-            font-size: 18px;
+            font-size: 20px;
             margin: 0;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            font-weight: 300;
         }
 
-        /* Định nghĩa hoạt ảnh trượt mượt mà */
+        /* 슬라이드 애니메이션 프레임 정의 */
         @keyframes slideAnimation {
             0%, 28% { transform: translateX(0); }
             33%, 61% { transform: translateX(-33.33%); }
@@ -104,7 +106,7 @@
             100% { transform: translateX(0); }
         }
 
-        /* Phần thân nội dung & Nút nhận Voucher nổi bật giống Olive Young */
+        /* 메인 콘텐츠 영역 및 공중 부양 바우처 박스 */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
@@ -114,181 +116,199 @@
 
         .voucher-box {
             background-color: #ffffff;
-            border: 2px solid #000000;
-            border-radius: 16px;
-            padding: 40px 30px;
+            border: 3px solid #000000;
+            border-radius: 20px;
+            padding: 45px 35px;
             display: inline-block;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            max-width: 500px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            max-width: 540px;
             width: 100%;
-            margin-top: -80px; /* Đẩy hộp đăng ký đè nhẹ lên banner tăng độ nổi bật */
+            margin-top: -100px;
             position: relative;
             z-index: 10;
         }
 
         .voucher-badge {
-            background-color: #f43142;
+            background-color: #f43142; /* 올리브영 포인트 레드 */
             color: white;
             font-weight: bold;
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             display: inline-block;
-            margin-bottom: 15px;
-            text-transform: uppercase;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
         }
 
         .voucher-box h3 {
-            font-size: 26px;
-            margin: 0 0 10px 0;
-            font-weight: 700;
+            font-size: 28px;
+            margin: 0 0 12px 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .voucher-box p {
             color: #666666;
-            margin-bottom: 25px;
-            font-size: 15px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            font-weight: 400;
         }
 
-        /* Thiết kế nút bấm Olive Young nổi bật */
+        /* 시각적 몰입감을 극대화한 초강력 하이라이트 버튼 디자인 */
         .btn-register {
-            background-color: #93b93a; /* Màu xanh Olive lục đặc trưng */
+            background: linear-gradient(135deg, #93b93a 0%, #7da22a 100%);
             color: #ffffff;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 16px 40px;
+            font-size: 20px;
+            font-weight: 800;
+            padding: 18px 45px;
             border: none;
-            border-radius: 30px;
+            border-radius: 35px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(147, 185, 58, 0.4);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
             text-decoration: none;
-            width: 80%;
+            width: 85%;
+            box-shadow: 0 6px 20px rgba(147, 185, 58, 0.5);
+            animation: pulseGlow 2s infinite; /* 시선 집중을 위한 버튼 자체 발광 애니메이션 */
         }
 
         .btn-register:hover {
-            background-color: #f43142; /* Đổi sang màu cam san hô Olive Young khi rê chuột vào */
-            box-shadow: 0 5px 15px rgba(244, 49, 66, 0.4);
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #f43142 0%, #e01f30 100%);
+            box-shadow: 0 8px 25px rgba(244, 49, 66, 0.6);
+            transform: translateY(-4px) scale(1.02);
         }
 
-        /* Sản phẩm mẫu bên dưới */
+        /* 버튼 주목도를 대폭 높이는 펄스 효과 기법 */
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(147, 185, 58, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0); }
+        }
+
+        /* 다채로운 브랜드별 베스트셀러 상품 그리드 */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
             text-align: left;
         }
 
         .product-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
             overflow: hidden;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            background: #fff;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
         }
 
         .product-img {
-            height: 250px;
+            height: 280px;
             background-color: #f5f5f5;
             background-size: cover;
             background-position: center;
         }
 
         .product-info {
-            padding: 15px;
+            padding: 20px;
         }
 
         .product-brand {
-            font-size: 12px;
-            color: #888;
-            font-weight: bold;
+            font-size: 13px;
+            color: #93b93a;
+            font-weight: 800;
+            margin-bottom: 4px;
         }
 
         .product-title {
-            font-size: 15px;
-            margin: 5px 0;
-            font-weight: normal;
+            font-size: 16px;
+            margin: 5px 0 12px 0;
+            font-weight: 500;
+            color: #222222;
+            height: 44px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .product-price {
-            font-weight: bold;
+            font-weight: 800;
             color: #f43142;
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header điều hướng -->
+    <!-- 상단 글로벌 헤더 -->
     <header>
-        <div class="logo">K-BEAUTY <span>CLIO</span></div>
-        <div>MALL A/B TESTING</div>
+        <div class="logo">K-BEAUTY <span>MALL</span></div>
+        <div>A/B TESTING LIVE</div>
     </header>
 
-    <!-- Banner động trượt ngang tự động -->
+    <!-- 실물 화장품 테마의 자동 트래킹 슬라이드 배너 광고 구역 -->
     <div class="banner-container">
         <div class="banner-slider">
+            <!-- 슬라이드 1: 메이크업 제품 샘플 -->
             <div class="slide slide1">
                 <div class="banner-overlay">
-                    <h2>CLIO NEW COLLECTION</h2>
-                    <p>Khám phá phong cách trang điểm thời thượng từ Seoul.</p>
+                    <h2>NEW TREND LOOKS</h2>
+                    <p>가장 트렌디한 이달의 추천 메이크업 컬렉션</p>
                 </div>
             </div>
+            <!-- 슬라이드 2: 기초 및 스킨케어 제품 샘플 -->
             <div class="slide slide2">
                 <div class="banner-overlay">
-                    <h2>KILL COVER FOUNDATION</h2>
-                    <p>Lớp nền hoàn hảo không tì vết suốt 72 giờ.</p>
+                    <h2>INTENSE SKINCARE</h2>
+                    <p>피부 깊숙이 차오르는 수분감과 완벽한 밀착 케어</p>
                 </div>
             </div>
+            <!-- 슬라이드 3: 천연 유기농 뷰티 제품 샘플 -->
             <div class="slide slide3">
                 <div class="banner-overlay">
-                    <h2>PRO EYE PALETTE</h2>
-                    <p>Bảng màu mắt đỉnh cao cho mọi khoảnh khắc.</p>
+                    <h2>ORGANIC RITUAL</h2>
+                    <p>자연에서 찾은 성분으로 민감한 피부 밸런싱 리셋</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Vùng nội dung chính -->
+    <!-- 페이지 세부 본문 영역 -->
     <div class="content-section">
         
-        <!-- Hộp nhận Voucher 10% nổi bật phong cách Olive Young -->
+        <!-- 전환 유도를 위한 강조형 회원가입 웰컴 바우처 모듈 -->
         <div class="voucher-box">
             <div class="voucher-badge">WELCOME BENEFIT</div>
-            <h3>Đăng ký thành viên mới</h3>
-            <p>Nhận ngay mã giảm giá giảm 10% áp dụng cho toàn bộ mỹ phẩm CLIO</p>
-            <button class="btn-register" onclick="alert('Đăng ký thành công! Mã Voucher 10% của bạn là: WELCOMECLIO10')">
-                ĐĂNG KÝ NHẬN VOUCHER 10%
+            <h3>신규 회원가입 혜택</h3>
+            <p>지금 가입하시면 전 브랜드 즉시 사용 가능한 10% 할인 쿠폰을 드립니다</p>
+            <button class="btn-register" onclick="alert('회원가입이 완료되었습니다! 발급된 쿠폰 코드: KTREND10')">
+                지금 가입하고 10% 쿠폰 받기
             </button>
         </div>
 
-        <!-- Danh sách sản phẩm bổ trợ bên dưới -->
-        <h2 style="margin-top: 60px; text-align: left; font-size: 24px;">Sản phẩm bán chạy</h2>
+        <!-- 멀티 브랜드 실제 상품 리스트 그리드 세션 -->
+        <h2 style="margin-top: 70px; text-align: left; font-size: 26px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
         <div class="products-grid">
+            
+            <!-- 상품 카드 1 -->
             <div class="product-card">
                 <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
                 <div class="product-info">
-                    <div class="product-brand">CLIO</div>
-                    <div class="product-title">Phấn nước Kill Cover Mesh Glow Cushion</div>
-                    <div class="product-price">32.000 Won</div>
+                    <div class="product-brand">K-BEAUTY</div>
+                    <div class="product-title">어성초 77 수딩 토너 & 하이드레이팅 앰플 세트</div>
+                    <div class="product-price">32,000 원</div>
                 </div>
             </div>
+
+            <!-- 상품 카드 2 -->
             <div class="product-card">
                 <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
                 <div class="product-info">
-                    <div class="product-brand">CLIO</div>
-                    <div class="product-title">Bảng màu mắt Pro Eye Palette Air</div>
-                    <div class="product-price">34.000 Won</div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</body>
-</html>
+                    <div class="product-brand">K-BEAUTY</div>
+                    <div class="product-title">쥬시 래스팅 틴트 탕후루 광택 롱래스팅 컬러</div>
