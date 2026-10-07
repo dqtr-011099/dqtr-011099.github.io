@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K-Beauty Mall A/B Testing</title>
     <style>
-        /* 올리브영 스타일의 미니멀리즘 및 가독성 중심 기본 설정 */
+        /* 미니멀리즘 스타일 및 가독성 중심 기본 설정 */
         body {
             font-family: 'Malgun Gothic', apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             line-height: 1.6;
@@ -15,37 +15,15 @@
             color: #000000;
         }
 
-        /* 내비게이션 바 / 헤더 */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            border-bottom: 1px solid #f2f2f2;
-            background: #ffffff;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            color: #000000;
-        }
-
-        .logo span {
-            color: #93b93a; /* 올리브영 시그니처 그린 컬러 */
-        }
+        /* [수정] 상단 헤더 영역을 완전히 제거하여 배너가 맨 위부터 시작하도록 설정 */
 
         /* 상품 중심의 역동적인 메인 배너 구역 */
         .banner-container {
             position: relative;
             width: 100%;
-            height: 520px;
+            height: 540px; /* 배너 시각적 몰입감을 위해 높이 최적화 */
             overflow: hidden;
-            background-color: #f9f9f9;
+            background-color: #f5f5f5;
         }
 
         /* 슬라이더 좌우 무한 반복 애니메이션 설정 */
@@ -64,7 +42,7 @@
             position: relative;
         }
 
-        /* 고화질 K-뷰티 스킨케어 및 메이크업 실물 상품 이미지 연동 */
+        /* [수정] 엑박 방지: 고화질 K-뷰티 실물 상품 이미지 직접 연동 */
         .slide1 { background-image: url('https://unsplash.com'); }
         .slide2 { background-image: url('https://unsplash.com'); }
         .slide3 { background-image: url('https://unsplash.com'); }
@@ -75,7 +53,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.35); /* 텍스트 시인성을 위한 소프트 음영 */
+            background: rgba(0, 0, 0, 0.3); /* 텍스트 가독성을 위한 소프트 음영 */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -84,7 +62,7 @@
         }
 
         .banner-overlay h2 {
-            font-size: 46px;
+            font-size: 48px;
             margin: 0 0 12px 0;
             font-weight: 800;
             text-shadow: 0 2px 4px rgba(0,0,0,0.4);
@@ -95,7 +73,7 @@
             font-size: 20px;
             margin: 0;
             text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-            font-weight: 300;
+            font-weight: 400;
         }
 
         /* 슬라이드 애니메이션 프레임 정의 */
@@ -123,13 +101,13 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             max-width: 540px;
             width: 100%;
-            margin-top: -100px;
+            margin-top: -100px; /* 배너 위로 부드럽게 겹치도록 설정 */
             position: relative;
             z-index: 10;
         }
 
         .voucher-badge {
-            background-color: #f43142; /* 올리브영 포인트 레드 */
+            background-color: #f43142; /* 하이라이트 레드 */
             color: white;
             font-weight: bold;
             padding: 6px 16px;
@@ -185,7 +163,7 @@
             100% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0); }
         }
 
-        /* 다채로운 브랜드별 베스트셀러 상품 그리드 */
+        /* 베스트셀러 상품 그리드 */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -246,30 +224,26 @@
 </head>
 <body>
 
-    <!-- 상단 글로벌 헤더 -->
-    <header>
-        <div class="logo">K-BEAUTY <span>MALL</span></div>
-        <div>A/B TESTING LIVE</div>
-    </header>
+    <!-- [수정] <header> 태그를 완전히 삭제하여 깔끔하게 배너로 시작합니다. -->
 
-    <!-- 실물 화장품 테마의 자동 트래킹 슬라이드 배너 광고 구역 -->
+    <!-- 자동 트래킹 슬라이드 배너 광고 구역 (실물 고화질 이미지 포함) -->
     <div class="banner-container">
         <div class="banner-slider">
-            <!-- 슬라이드 1: 메이크업 제품 샘플 -->
+            <!-- 슬라이드 1 -->
             <div class="slide slide1">
                 <div class="banner-overlay">
                     <h2>NEW TREND LOOKS</h2>
                     <p>가장 트렌디한 이달의 추천 메이크업 컬렉션</p>
                 </div>
             </div>
-            <!-- 슬라이드 2: 기초 및 스킨케어 제품 샘플 -->
+            <!-- 슬라이드 2 -->
             <div class="slide slide2">
                 <div class="banner-overlay">
                     <h2>INTENSE SKINCARE</h2>
                     <p>피부 깊숙이 차오르는 수분감과 완벽한 밀착 케어</p>
                 </div>
             </div>
-            <!-- 슬라이드 3: 천연 유기농 뷰티 제품 샘플 -->
+            <!-- 슬라이드 3 -->
             <div class="slide slide3">
                 <div class="banner-overlay">
                     <h2>ORGANIC RITUAL</h2>
@@ -282,17 +256,17 @@
     <!-- 페이지 세부 본문 영역 -->
     <div class="content-section">
         
-        <!-- 전환 유도를 위한 강조형 회원가입 웰컴 바우처 모듈 -->
+        <!-- 전환 유도를 위한 강조형 회원가입 바우처 모듈 -->
         <div class="voucher-box">
             <div class="voucher-badge">WELCOME BENEFIT</div>
             <h3>신규 회원가입 혜택</h3>
-            <p>지금 가입하시면 전 브랜드 즉시 사용 가능한 10% 할인 쿠폰을 드립니다</p>
+            <p>지금 가입하시면 K-Beauty 전 상품 즉시 사용 가능한 10% 할인 쿠폰을 드립니다</p>
             <button class="btn-register" onclick="alert('회원가입이 완료되었습니다! 발급된 쿠폰 코드: KTREND10')">
                 지금 가입하고 10% 쿠폰 받기
             </button>
         </div>
 
-        <!-- 멀티 브랜드 실제 상품 리스트 그리드 세션 -->
+        <!-- 상품 리스트 그리드 세션 -->
         <h2 style="margin-top: 70px; text-align: left; font-size: 26px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
         <div class="products-grid">
             
@@ -312,3 +286,18 @@
                 <div class="product-info">
                     <div class="product-brand">K-BEAUTY</div>
                     <div class="product-title">쥬시 래스팅 틴트 탕후루 광택 롱래스팅 컬러</div>
+                    <div class="product-price">13,000 원</div>
+                </div>
+            </div>
+
+            <!-- 상품 카드 3 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-info">
+                    <div class="product-brand">K-BEAUTY</div>
+                    <div class="product-title">소나무 진정 시카 크림 50ml (수분 집중 케어)</div>
+                    <div class="product-price">24,000 원</div>
+                </div>
+            </div>
+
+        </div>
