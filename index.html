@@ -40,7 +40,7 @@
             position: relative;
         }
 
-        /* [💡 ĐÃ CẬP NHẬT] Gọi trực tiếp 3 file ảnh bạn sẽ tải lên GitHub */
+        /* 메인 상단 슬라이드 배너 이미지 */
         .slide1 { background-image: url('banner1.png'); }
         .slide2 { background-image: url('banner2.png'); }
         .slide3 { background-image: url('banner3.png'); }
@@ -55,7 +55,7 @@
 
         /* 메인 콘텐츠 영역 및 공중 부양 바우처 박스 */
         .content-section {
-            max-width: 1200px;
+            max-width: 1240px; /* 4개 상품 레이아웃을 위해 너비 확장 */
             margin: 0 auto;
             padding: 50px 20px;
             text-align: center;
@@ -70,13 +70,13 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             max-width: 540px;
             width: 100%;
-            margin-top: -100px; /* 배너 위로 부드럽게 겹치도록 설정 */
+            margin-top: -100px; 
             position: relative;
             z-index: 10;
         }
 
         .voucher-badge {
-            background-color: #f43142; /* 하이라이트 레드 */
+            background-color: #f43142; 
             color: white;
             font-weight: bold;
             padding: 6px 16px;
@@ -101,7 +101,7 @@
             font-weight: 400;
         }
 
-        /* 시각적 몰입감을 극대화한 초강력 하이라이트 버튼 디자인 */
+        /* 시각적 몰입감을 극대화한 하이라이트 버튼 디자인 */
         .btn-register {
             background: linear-gradient(135deg, #93b93a 0%, #7da22a 100%);
             color: #ffffff;
@@ -116,7 +116,7 @@
             text-decoration: none;
             width: 85%;
             box-shadow: 0 6px 20px rgba(147, 185, 58, 0.5);
-            animation: pulseGlow 2s infinite; /* 시선 집중을 위한 버튼 자체 발광 애니메이션 */
+            animation: pulseGlow 2s infinite; 
         }
 
         .btn-register:hover {
@@ -125,18 +125,17 @@
             transform: translateY(-4px) scale(1.02);
         }
 
-        /* 버튼 주목도를 대폭 높이는 펄스 효과 기법 */
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(147, 185, 58, 0); }
             100% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0); }
         }
 
-        /* 베스트셀러 상품 그리드 */
+        /* Grid chia thành 4 cột tự động tương thích kích thước màn hình */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
             margin-top: 50px;
             text-align: left;
         }
@@ -155,14 +154,14 @@
         }
 
         .product-img {
-            height: 280px;
+            height: 250px; 
             background-color: #f5f5f5;
             background-size: cover;
             background-position: center;
         }
 
         .product-info {
-            padding: 20px;
+            padding: 15px;
         }
 
         .product-brand {
@@ -173,13 +172,13 @@
         }
 
         .product-title {
-            font-size: 16px;
+            font-size: 14px;
             margin: 5px 0 12px 0;
             font-weight: 500;
             color: #222222;
-            height: 44px;
+            height: 60px; 
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -187,13 +186,13 @@
         .product-price {
             font-weight: 800;
             color: #f43142;
-            font-size: 18px;
+            font-size: 16px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 이미지 전용 슬라이드 배너 구역 -->
+    <!-- 자동 트래킹 슬라이드 배너 광고 구역 -->
     <div class="banner-container">
         <div class="banner-slider">
             <div class="slide slide1"></div>
@@ -215,37 +214,47 @@
             </button>
         </div>
 
-        <!-- 상품 리스트 그리드 세션 -->
+        <!-- 실시간 베스트셀러 상품 리스트 (총 4개 상품 구성) -->
         <h2 style="margin-top: 70px; text-align: left; font-size: 26px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
         <div class="products-grid">
             
-            <!-- 상품 카드 1 -->
+            <!-- 상품 카드 1: 달바 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('banner2.png');"></div>
+                <div class="product-img" style="background-image: url('product1.png');"></div>
                 <div class="product-info">
-                    <div class="product-brand">ROMAND</div>
-                    <div class="product-title">쥬시 래스팅 틴트 탕후루 광택 롱래스팅 컬러</div>
-                    <div class="product-price">13,000 원</div>
+                    <div class="product-brand">달바 (d'Alba)</div>
+                    <div class="product-title">[26년 신형] 달바 비타 캡슐 크림 나이아신아마이드 5퍼센트 55g</div>
+                    <div class="product-price">42,900 원</div>
                 </div>
             </div>
 
-            <!-- 상품 카드 2 -->
+            <!-- 상품 카드 2: 이니스프리 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('banner1.png');"></div>
+                <div class="product-img" style="background-image: url('product2.png');"></div>
                 <div class="product-info">
-                    <div class="product-brand">CLIO</div>
-                    <div class="product-title">킬커버 메쉬 글로우 쿠션 기획 세트</div>
-                    <div class="product-price">32,000 원</div>
+                    <div class="product-brand">이니스프리 (INNISFREE)</div>
+                    <div class="product-title">이니스프리 그린티 씨드 히알루론산 크림 50ml 기획(+20ml)</div>
+                    <div class="product-price">19,400 원</div>
                 </div>
             </div>
 
-            <!-- 상품 카드 3 -->
+            <!-- 상품 카드 3: 닥터지 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('banner3.png');"></div>
+                <div class="product-img" style="background-image: url('product3.png');"></div>
                 <div class="product-info">
-                    <div class="product-brand">PERIPERA</div>
-                    <div class="product-title">맑게 물든 커스텀 치크 (페리페라 X CU 콜라보)</div>
-                    <div class="product-price">12,000 원</div>
+                    <div class="product-brand">닥터지 (Dr.G)</div>
+                    <div class="product-title">[수분진정/세럼증정] 닥터지 레드블레미쉬 클리어 수딩크림 EX...</div>
+                    <div class="product-price">27,600 원</div>
+                </div>
+            </div>
+
+            <!-- 상품 카드 4: 셀리맥스 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('product4.png');"></div>
+                <div class="product-info">
+                    <div class="product-brand">셀리맥스 (celimax)</div>
+                    <div class="product-title">[모공탄력/수분장벽/숙면팩] 셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림</div>
+                    <div class="product-price">37,000 원</div>
                 </div>
             </div>
 
