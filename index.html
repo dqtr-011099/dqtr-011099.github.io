@@ -40,39 +40,10 @@
             position: relative;
         }
 
-        /* 고화질 K-뷰티 실물 상품 이미지 직접 연동 */
-        .slide1 { background-image: url('https://unsplash.com'); }
-        .slide2 { background-image: url('https://unsplash.com'); }
-        .slide3 { background-image: url('https://unsplash.com'); }
-
-        .banner-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.35); /* 텍스트 가독성을 위한 소프트 음영 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 8%;
-            color: #ffffff;
-        }
-
-        .banner-overlay h2 {
-            font-size: 48px;
-            margin: 0 0 12px 0;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
-            letter-spacing: -1px;
-        }
-
-        .banner-overlay p {
-            font-size: 20px;
-            margin: 0;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-            font-weight: 400;
-        }
+        /* [💡 ĐÃ CẬP NHẬT] Gọi trực tiếp 3 file ảnh bạn sẽ tải lên GitHub */
+        .slide1 { background-image: url('banner1.png'); }
+        .slide2 { background-image: url('banner2.png'); }
+        .slide3 { background-image: url('banner3.png'); }
 
         /* 슬라이드 애니메이션 프레임 정의 */
         @keyframes slideAnimation {
@@ -222,30 +193,12 @@
 </head>
 <body>
 
-    <!-- 자동 트래킹 슬라이드 배너 광고 구역 (실물 고화질 이미지 포함) -->
+    <!-- 이미지 전용 슬라이드 배너 구역 -->
     <div class="banner-container">
         <div class="banner-slider">
-            <!-- 슬라이드 1 -->
-            <div class="slide slide1">
-                <div class="banner-overlay">
-                    <h2>NEW TREND LOOKS</h2>
-                    <p>가장 트렌디한 이달의 추천 메이크업 컬렉션</p>
-                </div>
-            </div>
-            <!-- 슬라이드 2 -->
-            <div class="slide slide2">
-                <div class="banner-overlay">
-                    <h2>INTENSE SKINCARE</h2>
-                    <p>피부 깊숙이 차오르는 수분감과 완벽한 밀착 케어</p>
-                </div>
-            </div>
-            <!-- 슬라이드 3 -->
-            <div class="slide slide3">
-                <div class="banner-overlay">
-                    <h2>ORGANIC RITUAL</h2>
-                    <p>자연에서 찾은 성분으로 민감한 피부 밸런싱 리셋</p>
-                </div>
-            </div>
+            <div class="slide slide1"></div>
+            <div class="slide slide2"></div>
+            <div class="slide slide3"></div>
         </div>
     </div>
 
@@ -268,31 +221,31 @@
             
             <!-- 상품 카드 1 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-img" style="background-image: url('banner2.png');"></div>
                 <div class="product-info">
-                    <div class="product-brand">K-BEAUTY</div>
-                    <div class="product-title">어성초 77 수딩 토너 & 하이드레이팅 앰플 세트</div>
-                    <div class="product-price">32,000 원</div>
-                </div>
-            </div>
-
-            <!-- 상품 카드 2 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
-                <div class="product-info">
-                    <div class="product-brand">K-BEAUTY</div>
+                    <div class="product-brand">ROMAND</div>
                     <div class="product-title">쥬시 래스팅 틴트 탕후루 광택 롱래스팅 컬러</div>
                     <div class="product-price">13,000 원</div>
                 </div>
             </div>
 
+            <!-- 상품 카드 2 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('banner1.png');"></div>
+                <div class="product-info">
+                    <div class="product-brand">CLIO</div>
+                    <div class="product-title">킬커버 메쉬 글로우 쿠션 기획 세트</div>
+                    <div class="product-price">32,000 원</div>
+                </div>
+            </div>
+
             <!-- 상품 카드 3 -->
             <div class="product-card">
-                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-img" style="background-image: url('banner3.png');"></div>
                 <div class="product-info">
-                    <div class="product-brand">K-BEAUTY</div>
-                    <div class="product-title">소나무 진정 시카 크림 50ml (수분 집중 케어)</div>
-                    <div class="product-price">24,000 원</div>
+                    <div class="product-brand">PERIPERA</div>
+                    <div class="product-title">맑게 물든 커스텀 치크 (페리페라 X CU 콜라보)</div>
+                    <div class="product-price">12,000 원</div>
                 </div>
             </div>
 
