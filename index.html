@@ -19,7 +19,7 @@
         .banner-container {
             position: relative;
             width: 100%;
-            height: 520px; 
+            height: 480px; /* 배너 높이를 조절하여 전체 레이아웃의 균형을 맞춤 */
             overflow: hidden;
             background-color: #f5f5f5;
         }
@@ -35,101 +35,107 @@
         .slide {
             width: 100%;
             height: 100%;
-            background-size: cover; /* 이미지가 빈 공간 없이 배너 전체에 꽉 차도록 설정 */
-            background-position: center; /* 이미지의 가운데가 보이도록 설정 */
+            background-size: cover; 
+            background-position: center; 
             background-repeat: no-repeat;
             position: relative;
         }
 
-        /* [💡 ĐÃ SỬA] Gọi chính xác tên file đuôi .png đang có sẵn trên GitHub của bạn */
+        /* GitHub에 업로드된 .png 이미지 직접 연동 */
         .slide1 { background-image: url('banner 1.png'); }
         .slide2 { background-image: url('banner 2.png'); }
         .slide3 { background-image: url('banner 3.png'); }
 
-        /* 3개 배너 슬라이드 애니메이션 프레임 정의 (각 배너당 33.33%씩 이동) */
+        /* 3개 배너 슬라이드 애니메이션 프레임 정의 */
         @keyframes slideAnimation {
-            0%, 28% { transform: translateX(0); }          /* 배너 1 (CLIO) */
-            33%, 61% { transform: translateX(-33.33%); }    /* 배너 2 (rom&nd) */
-            66%, 95% { transform: translateX(-66.66%); }    /* 배너 3 (peripera) */
-            100% { transform: translateX(0); }              /* 다시 배너 1로 복귀 */
+            0%, 28% { transform: translateX(0); }          
+            33%, 61% { transform: translateX(-33.33%); }    
+            66%, 95% { transform: translateX(-66.66%); }    
+            100% { transform: translateX(0); }              
         }
 
-        /* 메인 콘텐츠 영역 및 공중 부양 바우처 박스 */
+        /* 메인 콘텐츠 영역 */
         .content-section {
             max-width: 1240px; 
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 40px 20px;
             text-align: center;
         }
 
+        /* [수정] 지나치게 큰 면적을 차지하던 박스를 슬림하고 세련되게 변경 */
         .voucher-box {
             background-color: #ffffff;
-            border: 3px solid #000000;
-            border-radius: 20px;
-            padding: 45px 35px;
-            display: inline-block;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            max-width: 540px;
-            width: 100%;
-            margin-top: -80px; /* 배너 하단과 자연스럽게 겹치도록 정렬 */
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            padding: 25px 30px;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            max-width: 700px;
+            margin: 20px auto 40px auto; /* 배너 밑으로 위치를 내려 공간 낭비 방지 */
             position: relative;
             z-index: 10;
+            text-align: left; /* 좌측 정렬로 깔끔한 레이아웃 구성 */
+        }
+
+        .voucher-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
         }
 
         .voucher-badge {
             background-color: #f43142; 
             color: white;
             font-weight: bold;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            display: inline-block;
-            margin-bottom: 18px;
-            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .voucher-box h3 {
-            font-size: 28px;
-            margin: 0 0 12px 0;
+            font-size: 20px;
+            margin: 0;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            color: #111;
         }
 
         .voucher-box p {
             color: #666666;
-            margin-bottom: 30px;
-            font-size: 16px;
+            margin: 0;
+            font-size: 14px;
             font-weight: 400;
         }
 
-        /* 시각적 몰입감을 극대화한 하이라이트 버튼 디자인 */
+        /* [수정] 무식하게 크던 버튼을 올리브영 스타일의 컴팩트하고 강렬한 포인트 버튼으로 최적화 */
         .btn-register {
-            background: linear-gradient(135deg, #93b93a 0%, #7da22a 100%);
+            background: #f43142; /* 시선 집중을 유도하는 강렬한 포인트 레드 */
             color: #ffffff;
-            font-size: 20px;
+            font-size: 14px;
             font-weight: 800;
-            padding: 18px 45px;
+            padding: 10px 24px;
             border: none;
-            border-radius: 35px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
-            text-decoration: none;
-            width: 85%;
-            box-shadow: 0 6px 20px rgba(147, 185, 58, 0.5);
-            animation: pulseGlow 2s infinite; 
+            transition: all 0.2s ease;
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%); /* 박스 오른쪽 중앙에 콤팩트하게 배치 */
+            box-shadow: 0 4px 10px rgba(244, 49, 66, 0.3);
         }
 
         .btn-register:hover {
-            background: linear-gradient(135deg, #f43142 0%, #e01f30 100%);
-            box-shadow: 0 8px 25px rgba(244, 49, 66, 0.6);
-            transform: translateY(-4px) scale(1.02);
+            background: #d62232;
+            box-shadow: 0 4px 15px rgba(244, 49, 66, 0.5);
         }
 
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(147, 185, 58, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0); }
+        /* 모바일 대응 화면 좁아질 때 버튼 레이아웃 자동 조절 */
+        @media (max-width: 650px) {
+            .voucher-box { padding-bottom: 75px; }
+            .btn-register { top: auto; bottom: 15px; right: 30px; left: 30px; transform: none; text-align: center; }
         }
 
         /* Grid chia thành các hàng, mỗi hàng tự động có 4 cột đều nhau */
@@ -137,7 +143,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
             gap: 25px;
-            margin-top: 50px;
+            margin-top: 30px;
             text-align: left;
         }
 
@@ -168,7 +174,7 @@
 
         .product-brand {
             font-size: 13px;
-            color: #93b93a;
+            color: #f43142;
             font-weight: 800;
             margin-bottom: 4px;
         }
@@ -194,7 +200,7 @@
 </head>
 <body>
 
-    <!-- 3개 슬라이드로 복구된 메인 자동 배너 광고 구역 -->
+    <!-- 자동 트래킹 슬라이드 배너 광고 구역 -->
     <div class="banner-container">
         <div class="banner-slider">
             <div class="slide slide1"></div>
@@ -206,18 +212,20 @@
     <!-- 페이지 세부 본문 영역 -->
     <div class="content-section">
         
-        <!-- 전환 유도를 위한 강조형 회원가입 바우처 모듈 -->
+        <!-- [수정완료] 부피를 대폭 줄이고 가독성을 높인 슬림형 웰컴 쿠폰 바 셋업 -->
         <div class="voucher-box">
-            <div class="voucher-badge">WELCOME BENEFIT</div>
-            <h3>신규 회원가입 혜택</h3>
+            <div class="voucher-header">
+                <div class="voucher-badge">WELCOME BENEFIT</div>
+                <h3>신규 회원가입 혜택</h3>
+            </div>
             <p>지금 가입하시면 K-Beauty 전 상품 즉시 사용 가능한 10% 할인 쿠폰을 드립니다</p>
             <button class="btn-register" onclick="alert('회원가입이 완료되었습니다! 발급된 쿠폰 코드: KTREND10')">
-                지금 가입하고 10% 쿠폰 받기
+                쿠폰 받기
             </button>
         </div>
 
         <!-- 실시간 베스트셀러 상품 리스트 (총 8개 상품 구성) -->
-        <h2 style="margin-top: 70px; text-align: left; font-size: 26px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
+        <h2 style="margin-top: 50px; text-align: left; font-size: 24px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
         <div class="products-grid">
             
             <!-- [HÀNG 1] 상품 카드 1: 달바 -->
@@ -280,4 +288,5 @@
                 </div>
             </div>
 
-            <!-- [HÀNG 2] 상품 카드 7 -->
+            <!-- [HÀNG 2] 상품 카드 7: 아누아 -->
+            <div class="product-card">
