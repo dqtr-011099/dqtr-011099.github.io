@@ -19,12 +19,12 @@
         .banner-container {
             position: relative;
             width: 100%;
-            height: 540px; 
+            height: 520px; 
             overflow: hidden;
             background-color: #f5f5f5;
         }
 
-        /* 슬라이더 좌우 무한 반복 애니메이션 설정 */
+        /* 3개 슬라이더 좌우 무한 반복 애니메이션 설정 (너비 300%로 설정) */
         .banner-slider {
             display: flex;
             width: 300%;
@@ -35,27 +35,28 @@
         .slide {
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
+            background-size: cover; /* 이미지가 빈 공간 없이 배너 전체에 꽉 차도록 설정 */
+            background-position: center; /* 이미지의 가운데가 보이도록 설정 */
+            background-repeat: no-repeat;
             position: relative;
         }
 
-        /* [수정] thực tế ảnh tải lên là đuôi .jpg, đã cập nhật chính xác đuôi file */
-        .slide1 { background-image: url('banner 1.jpg'); }
-        .slide2 { background-image: url('banner 2.jpg'); }
-        .slide3 { background-image: url('banner 3.jpg'); }
+        /* [💡 ĐÃ SỬA] Gọi chính xác tên file đuôi .png đang có sẵn trên GitHub của bạn */
+        .slide1 { background-image: url('banner 1.png'); }
+        .slide2 { background-image: url('banner 2.png'); }
+        .slide3 { background-image: url('banner 3.png'); }
 
-        /* 슬라이드 애니메이션 프레임 정의 */
+        /* 3개 배너 슬라이드 애니메이션 프레임 정의 (각 배너당 33.33%씩 이동) */
         @keyframes slideAnimation {
-            0%, 28% { transform: translateX(0); }
-            33%, 61% { transform: translateX(-33.33%); }
-            66%, 95% { transform: translateX(-66.66%); }
-            100% { transform: translateX(0); }
+            0%, 28% { transform: translateX(0); }          /* 배너 1 (CLIO) */
+            33%, 61% { transform: translateX(-33.33%); }    /* 배너 2 (rom&nd) */
+            66%, 95% { transform: translateX(-66.66%); }    /* 배너 3 (peripera) */
+            100% { transform: translateX(0); }              /* 다시 배너 1로 복귀 */
         }
 
         /* 메인 콘텐츠 영역 및 공중 부양 바우처 박스 */
         .content-section {
-            max-width: 1240px; /* 4개 상품 레이아웃을 위해 너비 확장 */
+            max-width: 1240px; 
             margin: 0 auto;
             padding: 50px 20px;
             text-align: center;
@@ -70,7 +71,7 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             max-width: 540px;
             width: 100%;
-            margin-top: -100px; 
+            margin-top: -80px; /* 배너 하단과 자연스럽게 겹치도록 정렬 */
             position: relative;
             z-index: 10;
         }
@@ -131,7 +132,7 @@
             100% { box-shadow: 0 0 0 0 rgba(147, 185, 58, 0); }
         }
 
-        /* Grid chia thành 4 cột tự động tương thích kích thước màn hình */
+        /* Grid chia thành các hàng, mỗi hàng tự động có 4 cột đều nhau */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -155,9 +156,10 @@
 
         .product-img {
             height: 250px; 
-            background-color: #f5f5f5;
-            background-size: cover;
+            background-color: #ffffff;
+            background-size: cover; 
             background-position: center;
+            background-repeat: no-repeat;
         }
 
         .product-info {
@@ -192,7 +194,7 @@
 </head>
 <body>
 
-    <!-- 자동 트래킹 슬라이드 배너 광고 구역 -->
+    <!-- 3개 슬라이드로 복구된 메인 자동 배너 광고 구역 -->
     <div class="banner-container">
         <div class="banner-slider">
             <div class="slide slide1"></div>
@@ -214,11 +216,11 @@
             </button>
         </div>
 
-        <!-- 실시간 베스트셀러 상품 리스트 (총 4개 상품 구성) -->
+        <!-- 실시간 베스트셀러 상품 리스트 (총 8개 상품 구성) -->
         <h2 style="margin-top: 70px; text-align: left; font-size: 26px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
         <div class="products-grid">
             
-            <!-- 상품 카드 1: 달바 -->
+            <!-- [HÀNG 1] 상품 카드 1: 달바 -->
             <div class="product-card">
                 <div class="product-img" style="background-image: url('product1.jpg');"></div>
                 <div class="product-info">
@@ -228,7 +230,7 @@
                 </div>
             </div>
 
-            <!-- 상품 카드 2: 이니스프리 -->
+            <!-- [HÀNG 1] 상품 카드 2: 이니스프리 -->
             <div class="product-card">
                 <div class="product-img" style="background-image: url('product2.jpg');"></div>
                 <div class="product-info">
@@ -238,7 +240,7 @@
                 </div>
             </div>
 
-            <!-- 상품 카드 3: 닥터지 -->
+            <!-- [HÀNG 1] 상품 카드 3: 닥터지 -->
             <div class="product-card">
                 <div class="product-img" style="background-image: url('product3.jpg');"></div>
                 <div class="product-info">
@@ -248,7 +250,7 @@
                 </div>
             </div>
 
-            <!-- [💡 SỬA LỖI] 상품 카드 4: 셀리맥스 hoàn chỉnh hoàn toàn -->
+            <!-- [HÀNG 1] 상품 카드 4: 셀리맥스 -->
             <div class="product-card">
                 <div class="product-img" style="background-image: url('product4.jpg');"></div>
                 <div class="product-info">
@@ -258,8 +260,24 @@
                 </div>
             </div>
 
-        </div>
-    </div>
+            <!-- [HÀNG 2] 상품 카드 5: 클리오 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-info">
+                    <div class="product-brand">클리오 (CLIO)</div>
+                    <div class="product-title">클리오 킬커버 메쉬 글로우 쿠션 본품 + 리필 기획 세트</div>
+                    <div class="product-price">32,000 원</div>
+                </div>
+            </div>
 
-</body>
-</html>
+            <!-- [HÀNG 2] 상품 카드 6: 롬앤 -->
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+                <div class="product-info">
+                    <div class="product-brand">롬앤 (rom&nd)</div>
+                    <div class="product-title">롬앤 쥬시 래스팅 틴트 탕후루 광택 롱래스팅 립 컬러</div>
+                    <div class="product-price">13,000 원</div>
+                </div>
+            </div>
+
+            <!-- [HÀNG 2] 상품 카드 7 -->
