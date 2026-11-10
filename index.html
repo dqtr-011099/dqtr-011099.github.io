@@ -1,30 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K-Beauty Mall A/B Testing</title>
+
     <style>
-        /* 미니멀리즘 스타일 및 가독성 중심 기본 설정 */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Malgun Gothic', apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Malgun Gothic', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #ffffff;
+            background: #ffffff;
             color: #000000;
         }
 
-        /* 상품 중심의 역동적인 메인 배너 구역 */
+        /* Banner */
         .banner-container {
-            position: relative;
             width: 100%;
-            height: 480px; 
+            height: 480px;
             overflow: hidden;
-            background-color: #f5f5f5;
+            background: #f5f5f5;
         }
 
-        /* 3개 슬라이더 좌우 무한 반복 애니메이션 설정 (너비 300%로 설정) */
         .banner-slider {
             display: flex;
             width: 300%;
@@ -33,139 +36,98 @@
         }
 
         .slide {
-            width: 100%;
+            flex: 0 0 33.3333%;
             height: 100%;
-            background-size: cover; 
-            background-position: center; 
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
-            position: relative;
         }
 
-        /* GitHub에 업로드된 banner 1~3.png 이미지 직접 연동 */
-        .slide1 { background-image: url('banner 1.png'); }
-        .slide2 { background-image: url('banner 2.png'); }
-        .slide3 { background-image: url('banner 3.png'); }
+        .slide1 {
+            background-image: url('./banner%201.png');
+        }
 
-        /* 3개 배너 슬라이드 애니메이션 프레임 정의 */
+        .slide2 {
+            background-image: url('./banner%202.png');
+        }
+
+        .slide3 {
+            background-image: url('./banner%203.png');
+        }
+
         @keyframes slideAnimation {
-            0%, 28% { transform: translateX(0); }          
-            33%, 61% { transform: translateX(-33.33%); }    
-            66%, 95% { transform: translateX(-66.66%); }    
-            100% { transform: translateX(0); }              
+            0%, 28% {
+                transform: translateX(0);
+            }
+
+            33%, 61% {
+                transform: translateX(-33.3333%);
+            }
+
+            66%, 95% {
+                transform: translateX(-66.6667%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
 
-        /* 메인 콘텐츠 영역 */
+        /* Main content */
         .content-section {
-            max-width: 1240px; 
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 40px 20px;
-            text-align: center;
+            padding: 30px 20px 40px;
         }
 
-        /* 부피를 슬림하고 세련되게 최적화한 박스 */
-        .voucher-box {
-            background-color: #ffffff;
-            border: 1px solid #e5e5e5;
-            border-radius: 12px;
-            padding: 25px 30px;
-            display: block;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            max-width: 700px;
-            margin: 20px auto 40px auto; 
-            position: relative;
-            z-index: 10;
-            text-align: left; 
-        }
-
-        .voucher-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .voucher-badge {
-            background-color: #f43142; 
-            color: white;
-            font-weight: bold;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .voucher-box h3 {
-            font-size: 20px;
+        .section-title {
             margin: 0;
+            text-align: left;
+            font-size: 24px;
             font-weight: 800;
-            color: #111;
+            border-bottom: 2px solid #111;
+            padding-bottom: 12px;
         }
 
-        .voucher-box p {
-            color: #666666;
-            margin: 0;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        /* 올리브영 스타일의 컴팩트하고 강렬한 포인트 버튼 */
-        .btn-register {
-            background: #f43142; 
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 800;
-            padding: 10px 24px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%); 
-            box-shadow: 0 4px 10px rgba(244, 49, 66, 0.3);
-        }
-
-        .btn-register:hover {
-            background: #d62232;
-            box-shadow: 0 4px 15px rgba(244, 49, 66, 0.5);
-        }
-
-        /* @media 대응 */
-        @media (max-width: 650px) {
-            .voucher-box { padding-bottom: 75px; }
-            .btn-register { top: auto; bottom: 15px; right: 30px; left: 30px; transform: none; text-align: center; }
-        }
-
-        /* Grid chia thành các hàng, mỗi hàng tự động có 4 cột đều nhau */
+        /* Product grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 25px;
             margin-top: 30px;
-            text-align: left;
         }
 
         .product-card {
+            min-width: 0;
             border: 1px solid #eaeaea;
             border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            background: #fff;
+            background: #ffffff;
+            transition: 0.3s;
         }
 
         .product-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.08);
         }
 
+        /* Product images */
         .product-img {
-            height: 250px; 
-            background-color: #f5f5f5;
-            background-size: cover; 
-            background-position: center;
-            background-repeat: no-repeat;
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f7f7f7;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
         }
 
         .product-info {
@@ -181,10 +143,10 @@
 
         .product-title {
             font-size: 14px;
-            margin: 5px 0 12px 0;
+            margin: 5px 0 12px;
             font-weight: 500;
-            color: #222222;
-            height: 60px; 
+            color: #222;
+            min-height: 60px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -196,11 +158,42 @@
             color: #f43142;
             font-size: 16px;
         }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .banner-container {
+                height: 360px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .banner-container {
+                height: 240px;
+            }
+
+            .content-section {
+                padding: 24px 14px 32px;
+            }
+
+            .section-title {
+                font-size: 21px;
+            }
+        }
     </style>
 </head>
+
 <body>
 
-    <!-- 자동 트래킹 슬라이드 배너 광고 구역 -->
+    <!-- 3 Banner -->
     <div class="banner-container">
         <div class="banner-slider">
             <div class="slide slide1"></div>
@@ -209,85 +202,142 @@
         </div>
     </div>
 
-    <!-- 페이지 세부 본문 영역 -->
-    <div class="content-section">
-        
-        <!-- 슬림형 웰컴 쿠폰 바 셋업 -->
-        <div class="voucher-box">
-            <div class="voucher-header">
-                <div class="voucher-badge">WELCOME BENEFIT</div>
-                <h3>신규 회원가입 혜택</h3>
-            </div>
-            <p>지금 가입하시면 K-Beauty 전 상품 즉시 사용 가능한 10% 할인 쿠폰을 드립니다</p>
-            <button class="btn-register" onclick="alert('회원가입이 완료되었습니다! 발급된 쿠폰 코드: KTREND10')">
-                쿠폰 받기
-            </button>
-        </div>
+    <!-- Best Seller -->
+    <main class="content-section">
 
-        <!-- 실시간 베스트셀러 상품 리스트 (총 8개 상품 구성) -->
-        <h2 style="margin-top: 50px; text-align: left; font-size: 24px; font-weight: 800; border-bottom: 2px solid #111; padding-bottom: 12px;">실시간 베스트셀러</h2>
+        <h2 class="section-title">
+            실시간 베스트셀러
+        </h2>
+
         <div class="products-grid">
-            
-            <!-- [HÀNG 1] 상품 카드 1: 달바 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('product 1.jpg');"></div>
+
+            <!-- Product 1: d'Alba -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://raw.githubusercontent.com/dqtr-011099/dqtr-011099.github.io/main/product1.png.jpg"
+                        alt="달바 비타 캡슐 크림"
+                        loading="eager">
+                </div>
+
                 <div class="product-info">
                     <div class="product-brand">달바 (d'Alba)</div>
-                    <div class="product-title">[26년 신형] 달바 비타 캡슐 크림 나이아신아마이드 5퍼센트 55g</div>
+                    <div class="product-title">
+                        [26년 신형] 달바 비타 캡슐 크림 나이아신아마이드 5퍼센트 55g
+                    </div>
                     <div class="product-price">42,900 원</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- [HÀNG 1] 상품 카드 2: 이니스프리 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('product 2.jpg');"></div>
+            <!-- Product 2: Innisfree -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://raw.githubusercontent.com/dqtr-011099/dqtr-011099.github.io/main/product2.png.jpg"
+                        alt="이니스프리 그린티 크림"
+                        loading="eager">
+                </div>
+
                 <div class="product-info">
                     <div class="product-brand">이니스프리 (INNISFREE)</div>
-                    <div class="product-title">이니스프리 그린티 씨드 히알루론산 크림 50ml 기획(+20ml)</div>
+                    <div class="product-title">
+                        이니스프리 그린티 씨드 히알루론산 크림 50ml 기획(+20ml)
+                    </div>
                     <div class="product-price">19,400 원</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- [HÀNG 1] 상품 카드 3: 닥터지 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('product 3.jpg');"></div>
+            <!-- Product 3: Dr.G -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://raw.githubusercontent.com/dqtr-011099/dqtr-011099.github.io/main/product3.png.jpg"
+                        alt="닥터지 수딩크림"
+                        loading="eager">
+                </div>
+
                 <div class="product-info">
                     <div class="product-brand">닥터지 (Dr.G)</div>
-                    <div class="product-title">[수분진정/세럼증정] 닥터지 레드블레미쉬 클리어 수딩크림 EX...</div>
+                    <div class="product-title">
+                        [수분진정/세럼증정] 닥터지 레드블레미쉬 클리어 수딩크림 EX...
+                    </div>
                     <div class="product-price">27,600 원</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- [HÀNG 1] 상품 카드 4: 셀리맥스 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('product 4.jpg');"></div>
+            <!-- Product 4: Celimax -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://raw.githubusercontent.com/dqtr-011099/dqtr-011099.github.io/main/product4.png.jpg"
+                        alt="셀리맥스 듀얼 크림"
+                        loading="eager">
+                </div>
+
                 <div class="product-info">
                     <div class="product-brand">셀리맥스 (celimax)</div>
-                    <div class="product-title">[모공탄력/수분장벽/숙면팩] 셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림</div>
+                    <div class="product-title">
+                        [모공탄력/수분장벽/숙면팩] 셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림
+                    </div>
                     <div class="product-price">37,000 원</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- [HÀNG 2] 상품 카드 5: 클리오 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+            <!-- Product 5: CLIO -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://boniik.com.au/cdn/shop/files/clio-kill-cover-mesh-glow-cushion-boniik-australia4_ccb274e9-b359-4e02-b242-6abe597ed489.jpg?v=1716467616&width=800"
+                        alt="클리오 킬커버 쿠션"
+                        loading="lazy">
+                </div>
+
                 <div class="product-info">
                     <div class="product-brand">클리오 (CLIO)</div>
-                    <div class="product-title">클리오 킬커버 메쉬 글로우 쿠션 본품 + 리필 기획 세트</div>
+                    <div class="product-title">
+                        클리오 킬커버 메쉬 글로우 쿠션 본품 + 리필 기획 세트
+                    </div>
                     <div class="product-price">32,000 원</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- [HÀNG 2] 상품 카드 6: 롬앤 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+            <!-- Product 6: rom&nd -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://axiastation.ca/cdn/shop/files/1594.webp?v=1760725174&width=1000"
+                        alt="롬앤 쥬시 래스팅 틴트"
+                        loading="lazy">
+                </div>
+
                 <div class="product-info">
                     <div class="product-brand">롬앤 (rom&nd)</div>
-                    <div class="product-title">롬앤 쥬시 래스팅 틴트 탕후루 광택 롱래스팅 립 컬러</div>
+                    <div class="product-title">
+                        롬앤 쥬시 래스팅 틴트 탕후루 광택 롱래스팅 립 컬러
+                    </div>
                     <div class="product-price">13,000 원</div>
                 </div>
-            </div>
+            </article>
 
-            <!-- [HÀNG 2] 상품 카드 7: 아누아 -->
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://unsplash.com');"></div>
+            <!-- Product 7: ANUA -->
+            <article class="product-card">
+                <div class="product-img">
+                    <img
+                        src="https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/b15a334b63704fd18703355dad59fecd~tplv-fhlh96nyum-crop-webp%3A2000%3A2000.webp?dr=12190&from=2378011839&idc=useast5&ps=933b5bde&shcp=e1be8f53&shp=8dbd94bf&t=555f072d"
+                        alt="아누아 스킨케어 제품"
+                        loading="lazy">
+                </div>
+
+                <div class="product-info">
+                    <div class="product-brand">아누아 (ANUA)</div>
+                    <div class="product-title">
+                        아누아 스킨케어 제품
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+</body>
+</html>
