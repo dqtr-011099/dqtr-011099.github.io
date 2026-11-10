@@ -4,229 +4,293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>K-Beauty Mall A/B Testing</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Malgun Gothic', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #000000;
+    }
+    /* Banner */
+    .banner-container {
+        width: 100%;
+        height: 480px;
+        overflow: hidden;
+        background: #f5f5f5;
+    }
+    .banner-slider {
+        display: flex;
+        width: 300%;
+        height: 100%;
+        animation: slideAnimation 15s infinite ease-in-out;
+    }
+    .slide {
+        flex: 0 0 33.3333%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .slide1 {
+        background-image: url('./banner%201.png');
+    }
+    .slide2 {
+        background-image: url('./banner%202.png');
+    }
+    .slide3 {
+        background-image: url('./banner%203.png');
+    }
+    @keyframes slideAnimation {
+        0%, 28% {
+            transform: translateX(0);
         }
-
-        body {
-            font-family: 'Malgun Gothic', Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #ffffff;
-            color: #000000;
+        33%, 61% {
+            transform: translateX(-33.3333%);
         }
-
-        /* Banner */
-        .banner-container {
-            width: 100%;
-            height: 480px;
-            overflow: hidden;
-            background: #f5f5f5;
+        66%, 95% {
+            transform: translateX(-66.6667%);
         }
-
-        .banner-slider {
-            display: flex;
-            width: 300%;
-            height: 100%;
-            animation: slideAnimation 15s infinite ease-in-out;
+        100% {
+            transform: translateX(0);
         }
-
-        .slide {
-            flex: 0 0 33.3333%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .slide1 {
-            background-image: url('./banner%201.png');
-        }
-
-        .slide2 {
-            background-image: url('./banner%202.png');
-        }
-
-        .slide3 {
-            background-image: url('./banner%203.png');
-        }
-
-        @keyframes slideAnimation {
-            0%, 28% {
-                transform: translateX(0);
-            }
-
-            33%, 61% {
-                transform: translateX(-33.3333%);
-            }
-
-            66%, 95% {
-                transform: translateX(-66.6667%);
-            }
-
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        /* Main content */
-        .content-section {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 30px 20px 40px;
-        }
-
-        .section-title {
-            margin: 0;
-            text-align: left;
-            font-size: 24px;
-            font-weight: 800;
-            border-bottom: 2px solid #111;
-            padding-bottom: 12px;
-        }
-
-        /* Product grid */
+    }
+    /* Main content */
+    .content-section {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 30px 20px 40px;
+    }
+    .section-title {
+        margin: 0;
+        text-align: left;
+        font-size: 24px;
+        font-weight: 800;
+        border-bottom: 2px solid #111;
+        padding-bottom: 12px;
+    }
+    /* Product grid */
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+    .product-card {
+        min-width: 0;
+        border: 1px solid #eaeaea;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #ffffff;
+        transition: 0.3s;
+    }
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    }
+    /* Product images */
+    .product-img {
+        width: 100%;
+        height: 210px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        overflow: hidden;
+        padding: 12px;
+    }
+    .product-img img {
+        display: block;
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+    }
+    /* Product information */
+    .product-info {
+        padding: 15px;
+    }
+    .product-brand {
+        font-size: 13px;
+        color: #f43142;
+        font-weight: 800;
+        margin-bottom: 4px;
+    }
+    .product-title {
+        font-size: 14px;
+margin: 5px 0 12px;
+        font-weight: 500;
+        color: #222;
+        min-height: 60px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .product-price {
+        font-weight: 800;
+        color: #f43142;
+        font-size: 16px;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
         .products-grid {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
         }
-
-        .product-card {
-            min-width: 0;
-            border: 1px solid #eaeaea;
-            border-radius: 12px;
-            overflow: hidden;
-            background: #ffffff;
-            transition: 0.3s;
+        .banner-container {
+            height: 360px;
         }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 560px) {
+        .products-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
         }
-
-        /* Product images */
         .product-img {
-            width: 10%;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f7f7f7;
-            overflow: hidden;
+            height: 170px;
         }
-
-        .product-img img {
-            display: block;
-            width: 10%;
-height: 10%;
-            object-fit: contain;
-            object-position: center;
-        }
-
         .product-info {
-            padding: 15px;
+            padding: 10px;
         }
-
-        .product-brand {
-            font-size: 13px;
-            color: #f43142;
-            font-weight: 800;
-            margin-bottom: 4px;
-        }
-
         .product-title {
-            font-size: 14px;
-            margin: 5px 0 12px;
-            font-weight: 500;
-            color: #222;
-            min-height: 60px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            font-size: 12px;
+            min-height: 55px;
         }
-
         .product-price {
-            font-weight: 800;
-            color: #f43142;
-            font-size: 16px;
+            font-size: 14px;
         }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .products-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .banner-container {
-                height: 360px;
-            }
+        .banner-container {
+            height: 240px;
         }
-
-        @media (max-width: 560px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
-            .banner-container {
-                height: 240px;
-            }
-
-            .content-section {
-                padding: 24px 14px 32px;
-            }
-
-            .section-title {
-                font-size: 21px;
-            }
+        .content-section {
+            padding: 24px 14px 32px;
         }
-    </style>
+        .section-title {
+            font-size: 21px;
+        }
+    }
+</style>
 </head>
-
 <body>
-
-    <!-- 3 Banner -->
-    <div class="banner-container">
-        <div class="banner-slider">
-            <div class="slide slide1"></div>
-            <div class="slide slide2"></div>
-            <div class="slide slide3"></div>
-        </div>
+<!-- 3 Banner -->
+<div class="banner-container">
+    <div class="banner-slider">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
     </div>
-
-    <!-- Best Seller -->
-    <main class="content-section">
-
-        <h2 class="section-title">
-            실시간 베스트셀러
-        </h2>
-
-        <div class="products-grid">
-
-            <!-- Product 1: d'Alba -->
-            <div class="product-img" style="background-image: url('./product1.jpg');"></div>
-
-            <!-- Product 2: Innisfree -->
-            <div class="product-img" style="background-image: url('./product2.jpg');"></div>
-
-            <!-- Product 3: Dr.G -->
-            <div class="product-img" style="background-image: url('./product3.jpg');"></div>
-            <!-- Product 4: Celimax -->
-            <div class="product-img" style="background-image: url('./product4.jpg');"></div>
-
-            <!-- Product 5: CLIO -->
-            <div class="product-img" style="background-image: url('./product5.jpg');"></div>
-            <!-- Product 6: rom&nd -->
-            <div class="product-img" style="background-image: url('./product6.jpg');"></div>
-
-            <!-- Product 7: ANUA -->
-            <div class="product-img" style="background-image: url('./product7.jpg');"></div>
+</div>
+<!-- Best Seller -->
+<main class="content-section">
+    <h2 class="section-title">
+        실시간 베스트셀러
+    </h2>
+    <div class="products-grid">
+        <!-- Product 1: d'Alba -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="./product1.png.jpg"
+                     alt="달바 비타 캡슐 크림">
+            </div>
+            <div class="product-info">
+                <div class="product-brand">달바 (d'Alba)</div>
+                <div class="product-title">
+                    [26년 신형] 달바 비타 캡슐 크림 나이아신아마이드 5퍼센트 55g
+                </div>
+                <div class="product-price">42,900 원</div>
+            </div>
+        </article>
+        <!-- Product 2: Innisfree -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="./product2.png.jpg"
+                     alt="이니스프리 그린티 크림">
+            </div>
+            <div class="product-info">
+                <div class="product-brand">이니스프리 (INNISFREE)</div>
+                <div class="product-title">
+                    이니스프리 그린티 씨드 히알루론산 크림 50ml 기획(+20ml)
+                </div>
+                <div class="product-price">19,400 원</div>
+            </div>
+        </article>
+        <!-- Product 3: Dr.G -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="./product3.png.jpg"
+alt="닥터지 수딩크림">
+            </div>
+            <div class="product-info">
+                <div class="product-brand">닥터지 (Dr.G)</div>
+                <div class="product-title">
+                    [수분진정/세럼증정] 닥터지 레드블레미쉬 클리어 수딩크림 EX
+                </div>
+                <div class="product-price">27,600 원</div>
+            </div>
+        </article>
+        <!-- Product 4: Celimax -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="./product4.png.jpg"
+                     alt="셀리맥스 듀얼 크림">
+            </div>
+            <div class="product-info">
+                <div class="product-brand">셀리맥스 (celimax)</div>
+                <div class="product-title">
+                    [모공탄력/수분장벽/숙면팩] 셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림
+                </div>
+                <div class="product-price">37,000 원</div>
+            </div>
+        </article>
+        <!-- Product 5: CLIO -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="https://boniik.com.au/cdn/shop/files/clio-kill-cover-mesh-g…274e9-b359-4e02-b242-6abe597ed489.jpg?v=1716467616&width=800"
+                     alt="클리오 킬커버 쿠션">
+            </div>
+            <div class="product-info">
+                <div class="product-brand">클리오 (CLIO)</div>
+                <div class="product-title">
+                    클리오 킬커버 메쉬 글로우 쿠션 본품 + 리필 기획 세트
+                </div>
+                <div class="product-price">32,000 원</div>
+            </div>
+        </article>
+        <!-- Product 6: rom&nd -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="https://axiastation.ca/cdn/shop/files/1594.webp?v=1760725174&width=1000"
+                     alt="롬앤 쥬시 래스팅 틴트">
+            </div>
+            <div class="product-info">
+                <div class="product-brand">롬앤 (rom&nd)</div>
+                <div class="product-title">
+                    롬앤 쥬시 래스팅 틴트 탕후루 광택 롱래스팅 립 컬러
+                </div>
+                <div class="product-price">13,000 원</div>
+            </div>
+        </article>
+        <!-- Product 7: ANUA -->
+        <article class="product-card">
+            <div class="product-img">
+                <img src="https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-…dc=useast5&ps=933b5bde&shcp=e1be8f53&shp=8dbd94bf&t=555f072d"
+                     alt="아누아 스킨케어 제품">
+            </div>
+            <div class="product-info">
+<div class="product-brand">아누아 (ANUA)</div>
+                <div class="product-title">
+                    아누아 스킨케어 제품
+                </div>
+                <div class="product-price">가격 정보 없음</div>
+            </div>
+        </article>
+    </div>
+</main>
 </body>
 </html>
