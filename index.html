@@ -20,6 +20,10 @@ body {
     color: #000;
 }
 
+button {
+    font-family: inherit;
+}
+
 /* BANNER */
 .banner-container {
     width: 100%;
@@ -77,13 +81,57 @@ body {
     padding: 30px 20px 40px;
 }
 
+/* SECTION HEADING */
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
 .section-title {
+    flex: 1;
     margin: 0;
     text-align: left;
     font-size: 24px;
     font-weight: 800;
     border-bottom: 2px solid #111;
     padding-bottom: 12px;
+}
+
+/* CART TOP BUTTON */
+.cart-jump-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 17px;
+    border: 1px solid #222;
+    border-radius: 25px;
+    background: white;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.cart-jump-button:hover {
+    background: #222;
+    color: white;
+}
+
+.cart-count {
+    min-width: 23px;
+    height: 23px;
+    padding: 0 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    background: #f43142;
+    color: white;
+    font-size: 12px;
 }
 
 /* SEARCH BAR */
@@ -127,7 +175,6 @@ body {
     font-size: 14px;
     font-weight: 600;
     transition: 0.2s;
-    font-family: inherit;
 }
 
 .filter-btn:hover,
@@ -219,6 +266,204 @@ body {
     color: #f43142;
     font-size: 18px;
     margin-top: 10px;
+}
+
+/* ADD TO CART BUTTON */
+.add-cart-btn {
+    width: 100%;
+    margin-top: 13px;
+    padding: 11px 8px;
+    border: 1px solid #222;
+    border-radius: 5px;
+    background: white;
+    color: #222;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.add-cart-btn:hover {
+    background: #222;
+    color: white;
+}
+
+/* CART SECTION */
+.cart-section {
+    margin-top: 65px;
+    padding: 28px;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    scroll-margin-top: 20px;
+}
+
+.cart-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #222;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.cart-heading h2 {
+    font-size: 23px;
+    margin: 0;
+}
+
+.clear-cart-btn {
+    border: none;
+    background: transparent;
+    color: #888;
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.cart-feedback {
+    min-height: 22px;
+    margin: 0 0 12px;
+    color: #26945e;
+    font-size: 13px;
+}
+
+.cart-empty {
+    padding: 45px 10px;
+    text-align: center;
+    color: #888;
+    background: #fafafa;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.cart-empty-icon {
+    display: block;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 85px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item-image {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+.cart-item-brand {
+    color: #999;
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.cart-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 7px;
+}
+
+.cart-item-price {
+    color: #f43142;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.quantity-btn {
+    width: 29px;
+    height: 29px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.quantity-btn:hover {
+    border-color: #222;
+}
+
+.quantity-number {
+    min-width: 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.cart-item-right {
+    text-align: right;
+}
+
+.cart-item-total {
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.remove-cart-btn {
+    margin-top: 12px;
+    border: none;
+    background: none;
+    color: #999;
+    text-decoration: underline;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* CART SUMMARY */
+.cart-summary {
+    margin-top: 25px;
+    padding: 23px;
+    background: #f8f8f8;
+    border-radius: 8px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.summary-label {
+    color: #666;
+}
+
+.summary-total {
+    border-top: 1px solid #ddd;
+    padding-top: 17px;
+    margin-top: 17px;
+    margin-bottom: 0;
+}
+
+.summary-total strong {
+    color: #f43142;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.shipping-note {
+    margin-top: 12px;
+    font-size: 12px;
+    color: #888;
+    text-align: right;
 }
 
 /* CUSTOMER CENTER */
@@ -320,6 +565,32 @@ body {
     .customer-hours {
         font-size: 12px;
     }
+
+    .cart-section {
+        padding: 18px 13px;
+    }
+
+    .cart-item {
+        grid-template-columns: 65px minmax(0, 1fr) auto;
+        gap: 10px;
+    }
+
+    .cart-item-image {
+        width: 65px;
+        height: 65px;
+    }
+
+    .cart-item-name {
+        font-size: 12px;
+    }
+
+    .cart-item-total {
+        font-size: 12px;
+    }
+
+    .cart-item-right {
+        max-width: 90px;
+    }
 }
 
 @media (max-width: 560px) {
@@ -354,7 +625,16 @@ body {
     }
 
     .section-title {
-        font-size: 21px;
+        font-size: 19px;
+    }
+
+    .section-heading {
+        gap: 8px;
+    }
+
+    .cart-jump-button {
+        padding: 8px 10px;
+        font-size: 12px;
     }
 
     .category-filter {
@@ -368,6 +648,19 @@ body {
 
     .search-box {
         font-size: 14px;
+    }
+
+    .add-cart-btn {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+
+    .cart-heading h2 {
+        font-size: 19px;
+    }
+
+    .summary-total strong {
+        font-size: 20px;
     }
 }
 </style>
@@ -387,9 +680,17 @@ body {
 <!-- MAIN CONTENT -->
 <main class="content-section">
 
-    <h2 class="section-title">
-        실시간 베스트셀러
-    </h2>
+    <!-- SECTION HEADING + CART BUTTON -->
+    <div class="section-heading">
+        <h2 class="section-title">
+            실시간 베스트셀러
+        </h2>
+
+        <button type="button" class="cart-jump-button" id="cartJumpButton">
+            🛒 장바구니
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
 
     <!-- SEARCH BAR -->
     <div class="product-tools">
@@ -405,33 +706,23 @@ body {
         <!-- CATEGORY BUTTONS -->
         <div class="category-filter">
 
-            <button type="button"
-                    class="filter-btn active"
-                    data-category="all">
+            <button type="button" class="filter-btn active" data-category="all">
                 전체
             </button>
 
-            <button type="button"
-                    class="filter-btn"
-                    data-category="makeup">
+            <button type="button" class="filter-btn" data-category="makeup">
                 메이크업
             </button>
 
-            <button type="button"
-                    class="filter-btn"
-                    data-category="skincare">
+            <button type="button" class="filter-btn" data-category="skincare">
                 스킨케어
             </button>
 
-            <button type="button"
-                    class="filter-btn"
-                    data-category="haircare">
+            <button type="button" class="filter-btn" data-category="haircare">
                 헤어케어
             </button>
 
-            <button type="button"
-                    class="filter-btn"
-                    data-category="nail">
+            <button type="button" class="filter-btn" data-category="nail">
                 네일
             </button>
 
@@ -447,14 +738,11 @@ body {
     <div class="products-grid">
 
         <!-- PRODUCT 1 -->
-        <article class="product-card"
-                 data-category="skincare"
+        <article class="product-card" data-category="skincare"
                  data-keywords="달바 d'alba dalba 비타 캡슐 크림">
-
             <div class="product-img">
                 <img src="./product1.jpg" alt="달바 비타 캡슐 크림">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">달바 (d'Alba)</div>
                 <div class="product-title">
@@ -465,14 +753,11 @@ body {
         </article>
 
         <!-- PRODUCT 2 -->
-        <article class="product-card"
-                 data-category="skincare"
+        <article class="product-card" data-category="skincare"
                  data-keywords="이니스프리 innisfree 그린티 씨드 히알루론산 크림">
-
             <div class="product-img">
                 <img src="./product2.jpg" alt="이니스프리 그린티 크림">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">이니스프리 (INNISFREE)</div>
                 <div class="product-title">
@@ -483,14 +768,11 @@ body {
         </article>
 
         <!-- PRODUCT 3 -->
-        <article class="product-card"
-                 data-category="skincare"
+        <article class="product-card" data-category="skincare"
                  data-keywords="닥터지 dr.g 수딩크림 레드블레미쉬">
-
             <div class="product-img">
                 <img src="./product3.jpg" alt="닥터지 수딩크림">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">닥터지 (Dr.G)</div>
                 <div class="product-title">
@@ -501,14 +783,11 @@ body {
         </article>
 
         <!-- PRODUCT 4 -->
-        <article class="product-card"
-                 data-category="skincare"
+        <article class="product-card" data-category="skincare"
                  data-keywords="셀리맥스 celimax 레티날 크림">
-
             <div class="product-img">
                 <img src="./product4.jpg" alt="셀리맥스 크림">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">셀리맥스 (celimax)</div>
                 <div class="product-title">
@@ -519,14 +798,11 @@ body {
         </article>
 
         <!-- PRODUCT 5 -->
-        <article class="product-card"
-                 data-category="makeup"
+        <article class="product-card" data-category="makeup"
                  data-keywords="클리오 clio 킬커버 메쉬 글로우 쿠션">
-
             <div class="product-img">
                 <img src="./product5.jpg" alt="클리오 쿠션">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">클리오 (CLIO)</div>
                 <div class="product-title">
@@ -537,14 +813,11 @@ body {
         </article>
 
         <!-- PRODUCT 6 -->
-        <article class="product-card"
-                 data-category="makeup"
+        <article class="product-card" data-category="makeup"
                  data-keywords="롬앤 romand rom&nd 쥬시 래스팅 틴트">
-
             <div class="product-img">
                 <img src="./product6.jpg" alt="롬앤 틴트">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">롬앤 (rom&nd)</div>
                 <div class="product-title">
@@ -555,14 +828,11 @@ body {
         </article>
 
         <!-- PRODUCT 7 -->
-        <article class="product-card"
-                 data-category="skincare"
+        <article class="product-card" data-category="skincare"
                  data-keywords="아누아 anua 스킨케어">
-
             <div class="product-img">
                 <img src="./product7.jpg" alt="아누아 스킨케어">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">아누아 (ANUA)</div>
                 <div class="product-title">
@@ -573,14 +843,11 @@ body {
         </article>
 
         <!-- PRODUCT 8 -->
-        <article class="product-card"
-                 data-category="skincare"
+        <article class="product-card" data-category="skincare"
                  data-keywords="라로슈포제 la roche posay 시카플라스트 밤 b5">
-
             <div class="product-img">
                 <img src="./product8.jpg" alt="라로슈포제 시카플라스트 밤 B5+">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">라로슈포제 (La Roche-Posay)</div>
                 <div class="product-title">
@@ -590,15 +857,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 9: UNOVE -->
-        <article class="product-card"
-                 data-category="haircare"
+        <!-- PRODUCT 9 -->
+        <article class="product-card" data-category="haircare"
                  data-keywords="unove 유노브 딥 데미지 트리트먼트 헤어">
-
             <div class="product-img">
                 <img src="./product9.jpg" alt="UNOVE">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">UNOVE</div>
                 <div class="product-title">
@@ -608,15 +872,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 10: OHORA -->
-        <article class="product-card"
-                 data-category="nail"
+        <!-- PRODUCT 10 -->
+        <article class="product-card" data-category="nail"
                  data-keywords="ohora 오호라 젤네일 네일">
-
             <div class="product-img">
                 <img src="./product10.jpg" alt="OHORA">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">OHORA</div>
                 <div class="product-title">
@@ -626,15 +887,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 11: DASHING DIVA -->
-        <article class="product-card"
-                 data-category="nail"
+        <!-- PRODUCT 11 -->
+        <article class="product-card" data-category="nail"
                  data-keywords="dashing diva 대싱디바 magic press glaze zmc063nj">
-
             <div class="product-img">
                 <img src="./product11.webp" alt="DASHING DIVA MAGIC PRESS">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">DASHING DIVA</div>
                 <div class="product-title">
@@ -644,15 +902,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 12: ANUA -->
-        <article class="product-card"
-                 data-category="skincare"
+        <!-- PRODUCT 12 -->
+        <article class="product-card" data-category="skincare"
                  data-keywords="anua 아누아 어성초 77 깐달걀 토너">
-
             <div class="product-img">
                 <img src="./product12.webp" alt="ANUA 어성초 토너">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">ANUA (아누아)</div>
                 <div class="product-title">
@@ -662,15 +917,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 13: PERIPERA -->
-        <article class="product-card"
-                 data-category="makeup"
+        <!-- PRODUCT 13 -->
+        <article class="product-card" data-category="makeup"
                  data-keywords="peripera 페리페라 잉크 무드 글로이 틴트">
-
             <div class="product-img">
                 <img src="./product13.jpg" alt="PERIPERA 틴트">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">PERIPERA (페리페라)</div>
                 <div class="product-title">
@@ -680,15 +932,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 14: ESPOIR -->
-        <article class="product-card"
-                 data-category="makeup"
+        <!-- PRODUCT 14 -->
+        <article class="product-card" data-category="makeup"
                  data-keywords="espoir 에스쁘아 프로 테일러 쿠션">
-
             <div class="product-img">
                 <img src="./product14.jpg" alt="ESPOIR 쿠션">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">ESPOIR (에스쁘아)</div>
                 <div class="product-title">
@@ -698,15 +947,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 15: BEAUTY OF JOSEON -->
-        <article class="product-card"
-                 data-category="skincare"
+        <!-- PRODUCT 15 -->
+        <article class="product-card" data-category="skincare"
                  data-keywords="beauty of joseon 조선미녀 맑은쌀 선크림 자외선 차단">
-
             <div class="product-img">
                 <img src="./product15.jpg" alt="조선미녀 선크림">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">BEAUTY OF JOSEON</div>
                 <div class="product-title">
@@ -716,15 +962,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 16: ROUND LAB -->
-        <article class="product-card"
-                 data-category="skincare"
+        <!-- PRODUCT 16 -->
+        <article class="product-card" data-category="skincare"
                  data-keywords="round lab 라운드랩 자작나무 수분 크림">
-
             <div class="product-img">
                 <img src="./product16.jpg" alt="ROUND LAB 수분 크림">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">ROUND LAB (라운드랩)</div>
                 <div class="product-title">
@@ -734,15 +977,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 17: KUNDAL -->
-        <article class="product-card"
-                 data-category="haircare"
+        <!-- PRODUCT 17 -->
+        <article class="product-card" data-category="haircare"
                  data-keywords="kundal 쿤달 허니 앤 마카다미아 샴푸">
-
             <div class="product-img">
                 <img src="./product17.jpg" alt="KUNDAL 샴푸">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">KUNDAL (쿤달)</div>
                 <div class="product-title">
@@ -752,15 +992,12 @@ body {
             </div>
         </article>
 
-        <!-- PRODUCT 18: AROMATICA -->
-        <article class="product-card"
-                 data-category="haircare"
+        <!-- PRODUCT 18 -->
+        <article class="product-card" data-category="haircare"
                  data-keywords="aromatica 아로마티카 로즈마리 루트 인핸서">
-
             <div class="product-img">
                 <img src="./product18.jpg" alt="AROMATICA">
             </div>
-
             <div class="product-info">
                 <div class="product-brand">AROMATICA (아로마티카)</div>
                 <div class="product-title">
@@ -771,6 +1008,57 @@ body {
         </article>
 
     </div>
+
+    <!-- CART SECTION -->
+    <section class="cart-section" id="cartSection">
+
+        <div class="cart-heading">
+            <h2>🛒 장바구니</h2>
+            <button type="button" class="clear-cart-btn" id="clearCartButton">
+                전체 삭제
+            </button>
+        </div>
+
+        <p class="cart-feedback" id="cartFeedback" aria-live="polite"></p>
+
+        <div class="cart-empty" id="cartEmpty">
+            <span class="cart-empty-icon">🛍️</span>
+            장바구니가 비어 있습니다.<br>
+            원하는 상품을 장바구니에 담아 주세요.
+        </div>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-summary" id="cartSummary" hidden>
+
+            <div class="summary-row">
+                <span class="summary-label">총 상품 수량</span>
+                <strong id="cartTotalCount">0개</strong>
+            </div>
+
+            <div class="summary-row">
+                <span class="summary-label">상품 금액</span>
+                <strong id="cartSubtotal">0원</strong>
+            </div>
+
+            <div class="summary-row">
+                <span class="summary-label">배송비</span>
+                <span>결제 단계에서 별도 계산</span>
+            </div>
+
+            <div class="summary-row summary-total">
+                <strong>총 상품 합계</strong>
+                <strong id="cartFinalTotal">0원</strong>
+            </div>
+
+            <p class="shipping-note">
+                ※ 배송비는 포함되지 않은 상품 금액입니다.
+            </p>
+
+        </div>
+
+    </section>
+
 </main>
 
 <!-- CUSTOMER CENTER -->
@@ -807,17 +1095,325 @@ body {
     </div>
 </footer>
 
-<!-- SEARCH AND FILTER JAVASCRIPT -->
+<!-- SEARCH, FILTER AND CART JAVASCRIPT -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* ELEMENTS */
     const searchInput = document.getElementById("productSearch");
     const filterButtons = document.querySelectorAll(".filter-btn");
     const products = document.querySelectorAll(".product-card");
+    const productsGrid = document.querySelector(".products-grid");
     const noResults = document.getElementById("noResults");
+
+    const cartCount = document.getElementById("cartCount");
+    const cartItemsContainer = document.getElementById("cartItems");
+    const cartEmpty = document.getElementById("cartEmpty");
+    const cartSummary = document.getElementById("cartSummary");
+    const cartTotalCount = document.getElementById("cartTotalCount");
+    const cartSubtotal = document.getElementById("cartSubtotal");
+    const cartFinalTotal = document.getElementById("cartFinalTotal");
+    const cartFeedback = document.getElementById("cartFeedback");
 
     let activeCategory = "all";
 
+    /* FORMAT PRICE */
+    function formatPrice(price) {
+        return new Intl.NumberFormat("ko-KR").format(price) + "원";
+    }
+
+    /* GET PRODUCT INFORMATION FROM EXISTING PRODUCT CARDS */
+    const productList = [];
+    const productById = {};
+
+    products.forEach(function (product, index) {
+
+        const id = String(index + 1);
+
+        const brand = product.querySelector(".product-brand").textContent.trim();
+        const name = product.querySelector(".product-title").textContent.trim();
+
+        const priceText = product.querySelector(".product-price").textContent;
+        const price = Number(priceText.replace(/[^\d]/g, ""));
+
+        const image = product.querySelector(".product-img img").getAttribute("src");
+
+        const productData = {
+            id: id,
+            brand: brand,
+            name: name,
+            price: price,
+            image: image
+        };
+
+        productList.push(productData);
+        productById[id] = productData;
+
+        /* ADD BUTTON TO EACH PRODUCT */
+        const addButton = document.createElement("button");
+
+        addButton.type = "button";
+        addButton.className = "add-cart-btn";
+        addButton.dataset.productId = id;
+        addButton.textContent = "🛒 장바구니 담기";
+
+        product.querySelector(".product-info").appendChild(addButton);
+    });
+
+    /* LOAD SAVED CART */
+    let cart = {};
+
+    try {
+        const savedCart = JSON.parse(localStorage.getItem("kbeautyMallCart"));
+
+        if (savedCart && typeof savedCart === "object" && !Array.isArray(savedCart)) {
+
+            Object.keys(savedCart).forEach(function (id) {
+
+                const quantity = Number(savedCart[id]);
+
+                if (
+                    productById[id] &&
+                    Number.isInteger(quantity) &&
+                    quantity > 0
+                ) {
+                    cart[id] = quantity;
+                }
+
+            });
+        }
+
+    } catch (error) {
+        cart = {};
+    }
+
+    /* SAVE CART */
+    function saveCart() {
+        localStorage.setItem("kbeautyMallCart", JSON.stringify(cart));
+    }
+
+    /* ESCAPE HTML */
+    function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, function (character) {
+            const entities = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            };
+
+            return entities[character];
+        });
+    }
+
+    /* UPDATE CART DISPLAY */
+    function renderCart() {
+
+        let totalQuantity = 0;
+        let subtotal = 0;
+
+        const cartProductIds = Object.keys(cart);
+
+        cartProductIds.forEach(function (id) {
+
+            const product = productById[id];
+
+            if (!product) return;
+
+            const quantity = cart[id];
+
+            totalQuantity += quantity;
+            subtotal += product.price * quantity;
+        });
+
+        /* UPDATE TOP CART COUNT */
+        cartCount.textContent = totalQuantity;
+
+        /* EMPTY CART */
+        if (cartProductIds.length === 0) {
+
+            cartEmpty.style.display = "block";
+            cartItemsContainer.innerHTML = "";
+            cartSummary.hidden = true;
+
+            return;
+        }
+
+        cartEmpty.style.display = "none";
+        cartSummary.hidden = false;
+
+        /* CREATE CART ITEMS */
+        cartItemsContainer.innerHTML = cartProductIds.map(function (id) {
+
+            const product = productById[id];
+
+            if (!product) return "";
+
+            const quantity = cart[id];
+            const itemTotal = product.price * quantity;
+
+            return `
+                <div class="cart-item">
+
+                    <img
+                        class="cart-item-image"
+                        src="${escapeHTML(product.image)}"
+                        alt="${escapeHTML(product.name)}"
+                    >
+
+                    <div class="cart-item-info">
+
+                        <div class="cart-item-brand">
+                            ${escapeHTML(product.brand)}
+                        </div>
+
+                        <div class="cart-item-name">
+                            ${escapeHTML(product.name)}
+                        </div>
+
+                        <div class="cart-item-price">
+                            ${formatPrice(product.price)}
+                        </div>
+
+                        <div class="cart-quantity">
+
+                            <button
+                                type="button"
+                                class="quantity-btn"
+                                data-action="decrease"
+                                data-id="${id}"
+                                aria-label="수량 감소"
+                            >−</button>
+
+                            <span class="quantity-number">
+                                ${quantity}
+                            </span>
+
+                            <button
+                                type="button"
+                                class="quantity-btn"
+                                data-action="increase"
+                                data-id="${id}"
+                                aria-label="수량 증가"
+                            >+</button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="cart-item-right">
+
+                        <div class="cart-item-total">
+                            ${formatPrice(itemTotal)}
+                        </div>
+
+                        <button
+                            type="button"
+                            class="remove-cart-btn"
+                            data-action="remove"
+                            data-id="${id}"
+                        >
+                            삭제
+                        </button>
+
+                    </div>
+
+                </div>
+            `;
+
+        }).join("");
+
+        /* UPDATE TOTAL */
+        cartTotalCount.textContent = totalQuantity + "개";
+        cartSubtotal.textContent = formatPrice(subtotal);
+        cartFinalTotal.textContent = formatPrice(subtotal);
+    }
+
+    /* ADD TO CART */
+    productsGrid.addEventListener("click", function (event) {
+
+        const button = event.target.closest(".add-cart-btn");
+
+        if (!button) return;
+
+        const id = button.dataset.productId;
+
+        if (!productById[id]) return;
+
+        cart[id] = (cart[id] || 0) + 1;
+
+        saveCart();
+        renderCart();
+
+        cartFeedback.textContent =
+            productById[id].name + " 상품을 장바구니에 담았습니다.";
+    });
+
+    /* CART QUANTITY AND REMOVE BUTTONS */
+    cartItemsContainer.addEventListener("click", function (event) {
+
+        const button = event.target.closest("button[data-action]");
+
+        if (!button) return;
+
+        const id = button.dataset.id;
+        const action = button.dataset.action;
+
+        if (!cart[id]) return;
+
+        if (action === "increase") {
+
+            cart[id] += 1;
+
+        } else if (action === "decrease") {
+
+            cart[id] -= 1;
+
+            if (cart[id] <= 0) {
+                delete cart[id];
+            }
+
+        } else if (action === "remove") {
+
+            delete cart[id];
+
+        }
+
+        saveCart();
+        renderCart();
+
+        cartFeedback.textContent = "장바구니가 업데이트되었습니다.";
+    });
+
+    /* CLEAR ALL CART */
+    document.getElementById("clearCartButton").addEventListener("click", function () {
+
+        if (Object.keys(cart).length === 0) return;
+
+        const confirmed = confirm("장바구니를 모두 비우시겠습니까?");
+
+        if (!confirmed) return;
+
+        cart = {};
+
+        saveCart();
+        renderCart();
+
+        cartFeedback.textContent = "장바구니를 비웠습니다.";
+    });
+
+    /* SCROLL TO CART */
+    document.getElementById("cartJumpButton").addEventListener("click", function () {
+
+        document.getElementById("cartSection").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+    /* SEARCH AND CATEGORY FILTER */
     function filterProducts() {
 
         const keyword = searchInput.value
@@ -831,7 +1427,8 @@ document.addEventListener("DOMContentLoaded", function () {
             const category = product.dataset.category || "";
 
             const productText = (
-                product.innerText + " " +
+                product.querySelector(".product-brand").textContent + " " +
+                product.querySelector(".product-title").textContent + " " +
                 (product.dataset.keywords || "")
             ).toLocaleLowerCase("ko");
 
@@ -855,10 +1452,10 @@ document.addEventListener("DOMContentLoaded", function () {
             visibleCount === 0 ? "block" : "none";
     }
 
-    // SEARCH
+    /* SEARCH */
     searchInput.addEventListener("input", filterProducts);
 
-    // CATEGORY FILTER
+    /* CATEGORY FILTER */
     filterButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
@@ -875,6 +1472,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+    /* INITIAL CART DISPLAY */
+    renderCart();
 
 });
 </script>
