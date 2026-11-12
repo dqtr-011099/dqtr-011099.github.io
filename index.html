@@ -24,7 +24,7 @@ button {
     font-family: inherit;
 }
 
-/* GLOWLY LOGO - NEW */
+/* GLOWLY LOGO */
 .site-header {
     width: 100%;
     height: 110px;
@@ -50,12 +50,12 @@ button {
     color: #d98ca4;
 }
 
-/* BANNER */
+/* BANNER - FULL IMAGE DISPLAY */
 .banner-container {
     width: 100%;
     height: 480px;
     overflow: hidden;
-    background: #f5f5f5;
+    background: #fff;
 }
 
 .banner-slider {
@@ -68,9 +68,10 @@ button {
 .slide {
     flex: 0 0 33.3333%;
     height: 100%;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #fff;
 }
 
 .slide1 {
@@ -703,7 +704,7 @@ button {
 
 <body>
 
-<!-- GLOWLY LOGO - NEW -->
+<!-- GLOWLY LOGO -->
 <header class="site-header">
     <a href="#" class="glowly-logo" aria-label="Glowly">
         Glow<span>ly</span>
@@ -722,11 +723,8 @@ button {
 <!-- MAIN CONTENT -->
 <main class="content-section">
 
-    <!-- SECTION HEADING + CART BUTTON -->
     <div class="section-heading">
-        <h2 class="section-title">
-            실시간 베스트셀러
-        </h2>
+        <h2 class="section-title">실시간 베스트셀러</h2>
 
         <button type="button" class="cart-jump-button" id="cartJumpButton">
             🛒 장바구니
@@ -736,7 +734,6 @@ button {
 
     <!-- SEARCH BAR -->
     <div class="product-tools">
-
         <input
             type="text"
             id="productSearch"
@@ -745,306 +742,178 @@ button {
             autocomplete="off"
         >
 
-        <!-- CATEGORY BUTTONS -->
         <div class="category-filter">
-
-            <button type="button" class="filter-btn active" data-category="all">
-                전체
-            </button>
-
-            <button type="button" class="filter-btn" data-category="makeup">
-                메이크업
-            </button>
-
-            <button type="button" class="filter-btn" data-category="skincare">
-                스킨케어
-            </button>
-
-            <button type="button" class="filter-btn" data-category="haircare">
-                헤어케어
-            </button>
-
-            <button type="button" class="filter-btn" data-category="nail">
-                네일
-            </button>
-
+            <button type="button" class="filter-btn active" data-category="all">전체</button>
+            <button type="button" class="filter-btn" data-category="makeup">메이크업</button>
+            <button type="button" class="filter-btn" data-category="skincare">스킨케어</button>
+            <button type="button" class="filter-btn" data-category="haircare">헤어케어</button>
+            <button type="button" class="filter-btn" data-category="nail">네일</button>
         </div>
     </div>
 
-    <!-- NO RESULTS MESSAGE -->
-    <p id="noResults">
-        검색 결과가 없습니다.
-    </p>
+    <p id="noResults">검색 결과가 없습니다.</p>
 
     <!-- PRODUCT GRID -->
     <div class="products-grid">
 
-        <!-- PRODUCT 1 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="달바 d'alba dalba 비타 캡슐 크림">
-            <div class="product-img">
-                <img src="./product1.jpg" alt="달바 비타 캡슐 크림">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="달바 d'alba dalba 비타 캡슐 크림">
+            <div class="product-img"><img src="./product1.jpg" alt="달바 비타 캡슐 크림"></div>
             <div class="product-info">
                 <div class="product-brand">달바 (d'Alba)</div>
-                <div class="product-title">
-                    [26년 신형] 달바 비타 캡슐 크림 나이아신아마이드 5퍼센트 55g
-                </div>
+                <div class="product-title">[26년 신형] 달바 비타 캡슐 크림 나이아신아마이드 5퍼센트 55g</div>
                 <div class="product-price">42,900 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 2 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="이니스프리 innisfree 그린티 씨드 히알루론산 크림">
-            <div class="product-img">
-                <img src="./product2.jpg" alt="이니스프리 그린티 크림">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="이니스프리 innisfree 그린티 씨드 히알루론산 크림">
+            <div class="product-img"><img src="./product2.jpg" alt="이니스프리 그린티 크림"></div>
             <div class="product-info">
                 <div class="product-brand">이니스프리 (INNISFREE)</div>
-                <div class="product-title">
-                    이니스프리 그린티 씨드 히알루론산 크림 50ml 기획
-                </div>
+                <div class="product-title">이니스프리 그린티 씨드 히알루론산 크림 50ml 기획</div>
                 <div class="product-price">19,400 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 3 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="닥터지 dr.g 수딩크림 레드블레미쉬">
-            <div class="product-img">
-                <img src="./product3.jpg" alt="닥터지 수딩크림">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="닥터지 dr.g 수딩크림 레드블레미쉬">
+            <div class="product-img"><img src="./product3.jpg" alt="닥터지 수딩크림"></div>
             <div class="product-info">
                 <div class="product-brand">닥터지 (Dr.G)</div>
-                <div class="product-title">
-                    닥터지 레드블레미쉬 클리어 수딩크림 EX
-                </div>
+                <div class="product-title">닥터지 레드블레미쉬 클리어 수딩크림 EX</div>
                 <div class="product-price">27,600 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 4 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="셀리맥스 celimax 레티날 크림">
-            <div class="product-img">
-                <img src="./product4.jpg" alt="셀리맥스 크림">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="셀리맥스 celimax 레티날 크림">
+            <div class="product-img"><img src="./product4.jpg" alt="셀리맥스 크림"></div>
             <div class="product-info">
                 <div class="product-brand">셀리맥스 (celimax)</div>
-                <div class="product-title">
-                    셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림
-                </div>
+                <div class="product-title">셀리맥스 더 비타 A 레티날 샷 타이트닝 듀얼 크림</div>
                 <div class="product-price">37,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 5 -->
-        <article class="product-card" data-category="makeup"
-                 data-keywords="클리오 clio 킬커버 메쉬 글로우 쿠션">
-            <div class="product-img">
-                <img src="./product5.jpg" alt="클리오 쿠션">
-            </div>
+        <article class="product-card" data-category="makeup" data-keywords="클리오 clio 킬커버 메쉬 글로우 쿠션">
+            <div class="product-img"><img src="./product5.jpg" alt="클리오 쿠션"></div>
             <div class="product-info">
                 <div class="product-brand">클리오 (CLIO)</div>
-                <div class="product-title">
-                    클리오 킬커버 메쉬 글로우 쿠션
-                </div>
+                <div class="product-title">클리오 킬커버 메쉬 글로우 쿠션</div>
                 <div class="product-price">32,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 6 -->
-        <article class="product-card" data-category="makeup"
-                 data-keywords="롬앤 romand rom&nd 쥬시 래스팅 틴트">
-            <div class="product-img">
-                <img src="./product6.jpg" alt="롬앤 틴트">
-            </div>
+        <article class="product-card" data-category="makeup" data-keywords="롬앤 romand rom&nd 쥬시 래스팅 틴트">
+            <div class="product-img"><img src="./product6.jpg" alt="롬앤 틴트"></div>
             <div class="product-info">
                 <div class="product-brand">롬앤 (rom&nd)</div>
-                <div class="product-title">
-                    롬앤 쥬시 래스팅 틴트
-                </div>
+                <div class="product-title">롬앤 쥬시 래스팅 틴트</div>
                 <div class="product-price">13,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 7 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="아누아 anua 스킨케어">
-            <div class="product-img">
-                <img src="./product7.jpg" alt="아누아 스킨케어">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="아누아 anua 스킨케어">
+            <div class="product-img"><img src="./product7.jpg" alt="아누아 스킨케어"></div>
             <div class="product-info">
                 <div class="product-brand">아누아 (ANUA)</div>
-                <div class="product-title">
-                    아누아 스킨케어 제품
-                </div>
+                <div class="product-title">아누아 스킨케어 제품</div>
                 <div class="product-price">32,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 8 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="라로슈포제 la roche posay 시카플라스트 밤 b5">
-            <div class="product-img">
-                <img src="./product8.jpg" alt="라로슈포제 시카플라스트 밤 B5+">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="라로슈포제 la roche posay 시카플라스트 밤 b5">
+            <div class="product-img"><img src="./product8.jpg" alt="라로슈포제 시카플라스트 밤 B5+"></div>
             <div class="product-info">
                 <div class="product-brand">라로슈포제 (La Roche-Posay)</div>
-                <div class="product-title">
-                    라로슈포제 시카플라스트 밤 B5+ 100ml
-                </div>
+                <div class="product-title">라로슈포제 시카플라스트 밤 B5+ 100ml</div>
                 <div class="product-price">41,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 9 -->
-        <article class="product-card" data-category="haircare"
-                 data-keywords="unove 유노브 딥 데미지 트리트먼트 헤어">
-            <div class="product-img">
-                <img src="./product9.jpg" alt="UNOVE">
-            </div>
+        <article class="product-card" data-category="haircare" data-keywords="unove 유노브 딥 데미지 트리트먼트 헤어">
+            <div class="product-img"><img src="./product9.jpg" alt="UNOVE"></div>
             <div class="product-info">
                 <div class="product-brand">UNOVE</div>
-                <div class="product-title">
-                    딥 데미지 트리트먼트 EX 207ml
-                </div>
+                <div class="product-title">딥 데미지 트리트먼트 EX 207ml</div>
                 <div class="product-price">22,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 10 -->
-        <article class="product-card" data-category="nail"
-                 data-keywords="ohora 오호라 젤네일 네일">
-            <div class="product-img">
-                <img src="./product10.jpg" alt="OHORA">
-            </div>
+        <article class="product-card" data-category="nail" data-keywords="ohora 오호라 젤네일 네일">
+            <div class="product-img"><img src="./product10.jpg" alt="OHORA"></div>
             <div class="product-info">
                 <div class="product-brand">OHORA</div>
-                <div class="product-title">
-                    오호라 젤 스트립
-                </div>
+                <div class="product-title">오호라 젤 스트립</div>
                 <div class="product-price">14,800 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 11 -->
-        <article class="product-card" data-category="nail"
-                 data-keywords="dashing diva 대싱디바 magic press glaze zmc063nj">
-            <div class="product-img">
-                <img src="./product11.webp" alt="DASHING DIVA MAGIC PRESS">
-            </div>
+        <article class="product-card" data-category="nail" data-keywords="dashing diva 대싱디바 magic press glaze zmc063nj">
+            <div class="product-img"><img src="./product11.webp" alt="DASHING DIVA MAGIC PRESS"></div>
             <div class="product-info">
                 <div class="product-brand">DASHING DIVA</div>
-                <div class="product-title">
-                    MAGIC PRESS GLAZE 본체 ZMC063NJ (34개입)
-                </div>
+                <div class="product-title">MAGIC PRESS GLAZE 본체 ZMC063NJ (34개입)</div>
                 <div class="product-price">18,800 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 12 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="anua 아누아 어성초 77 깐달걀 토너">
-            <div class="product-img">
-                <img src="./product12.webp" alt="ANUA 어성초 토너">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="anua 아누아 어성초 77 깐달걀 토너">
+            <div class="product-img"><img src="./product12.webp" alt="ANUA 어성초 토너"></div>
             <div class="product-info">
                 <div class="product-brand">ANUA (아누아)</div>
-                <div class="product-title">
-                    아누아 어성초 77 깐달걀 토너 250ml
-                </div>
+                <div class="product-title">아누아 어성초 77 깐달걀 토너 250ml</div>
                 <div class="product-price">20,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 13 -->
-        <article class="product-card" data-category="makeup"
-                 data-keywords="peripera 페리페라 잉크 무드 글로이 틴트">
-            <div class="product-img">
-                <img src="./product13.jpg" alt="PERIPERA 틴트">
-            </div>
+        <article class="product-card" data-category="makeup" data-keywords="peripera 페리페라 잉크 무드 글로이 틴트">
+            <div class="product-img"><img src="./product13.jpg" alt="PERIPERA 틴트"></div>
             <div class="product-info">
                 <div class="product-brand">PERIPERA (페리페라)</div>
-                <div class="product-title">
-                    페리페라 잉크 무드 글로이 틴트 4g
-                </div>
+                <div class="product-title">페리페라 잉크 무드 글로이 틴트 4g</div>
                 <div class="product-price">13,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 14 -->
-        <article class="product-card" data-category="makeup"
-                 data-keywords="espoir 에스쁘아 프로 테일러 쿠션">
-            <div class="product-img">
-                <img src="./product14.jpg" alt="ESPOIR 쿠션">
-            </div>
+        <article class="product-card" data-category="makeup" data-keywords="espoir 에스쁘아 프로 테일러 쿠션">
+            <div class="product-img"><img src="./product14.jpg" alt="ESPOIR 쿠션"></div>
             <div class="product-info">
                 <div class="product-brand">ESPOIR (에스쁘아)</div>
-                <div class="product-title">
-                    에스쁘아 프로 테일러 비 글로우 쿠션 13g
-                </div>
+                <div class="product-title">에스쁘아 프로 테일러 비 글로우 쿠션 13g</div>
                 <div class="product-price">17,800 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 15 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="beauty of joseon 조선미녀 맑은쌀 선크림 자외선 차단">
-            <div class="product-img">
-                <img src="./product15.jpg" alt="조선미녀 선크림">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="beauty of joseon 조선미녀 맑은쌀 선크림 자외선 차단">
+            <div class="product-img"><img src="./product15.jpg" alt="조선미녀 선크림"></div>
             <div class="product-info">
                 <div class="product-brand">BEAUTY OF JOSEON</div>
-                <div class="product-title">
-                    조선미녀 맑은쌀 선크림 50ml
-                </div>
+                <div class="product-title">조선미녀 맑은쌀 선크림 50ml</div>
                 <div class="product-price">18,000 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 16 -->
-        <article class="product-card" data-category="skincare"
-                 data-keywords="round lab 라운드랩 자작나무 수분 크림">
-            <div class="product-img">
-                <img src="./product16.jpg" alt="ROUND LAB 수분 크림">
-            </div>
+        <article class="product-card" data-category="skincare" data-keywords="round lab 라운드랩 자작나무 수분 크림">
+            <div class="product-img"><img src="./product16.jpg" alt="ROUND LAB 수분 크림"></div>
             <div class="product-info">
                 <div class="product-brand">ROUND LAB (라운드랩)</div>
-                <div class="product-title">
-                    라운드랩 자작나무 수분 크림 80ml
-                </div>
+                <div class="product-title">라운드랩 자작나무 수분 크림 80ml</div>
                 <div class="product-price">25,600 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 17 -->
-        <article class="product-card" data-category="haircare"
-                 data-keywords="kundal 쿤달 허니 앤 마카다미아 샴푸">
-            <div class="product-img">
-                <img src="./product17.jpg" alt="KUNDAL 샴푸">
-            </div>
+        <article class="product-card" data-category="haircare" data-keywords="kundal 쿤달 허니 앤 마카다미아 샴푸">
+            <div class="product-img"><img src="./product17.jpg" alt="KUNDAL 샴푸"></div>
             <div class="product-info">
                 <div class="product-brand">KUNDAL (쿤달)</div>
-                <div class="product-title">
-                    쿤달 허니 앤 마카다미아 네이처 샴푸 500ml
-                </div>
+                <div class="product-title">쿤달 허니 앤 마카다미아 네이처 샴푸 500ml</div>
                 <div class="product-price">13,900 원</div>
             </div>
         </article>
 
-        <!-- PRODUCT 18 -->
-        <article class="product-card" data-category="haircare"
-                 data-keywords="aromatica 아로마티카 로즈마리 루트 인핸서">
-            <div class="product-img">
-                <img src="./product18.jpg" alt="AROMATICA">
-            </div>
+        <article class="product-card" data-category="haircare" data-keywords="aromatica 아로마티카 로즈마리 루트 인핸서">
+            <div class="product-img"><img src="./product18.jpg" alt="AROMATICA"></div>
             <div class="product-info">
                 <div class="product-brand">AROMATICA (아로마티카)</div>
-                <div class="product-title">
-                    아로마티카 로즈마리 루트 인핸서 100ml
-                </div>
+                <div class="product-title">아로마티카 로즈마리 루트 인핸서 100ml</div>
                 <div class="product-price">20,000 원</div>
             </div>
         </article>
@@ -1098,7 +967,6 @@ button {
             </p>
 
         </div>
-
     </section>
 
 </main>
@@ -1110,9 +978,7 @@ button {
         <div class="customer-info">
             <h3>고객센터</h3>
 
-            <div class="customer-phone">
-                4295-1774
-            </div>
+            <div class="customer-phone">4295-1774</div>
 
             <div class="customer-hours">
                 일반문의 : 09:00~18:00 (평일)<br>
@@ -1125,13 +991,8 @@ button {
         </div>
 
         <div class="customer-buttons">
-            <a href="#" class="customer-btn">
-                1:1 문의하기
-            </a>
-
-            <a href="#" class="customer-btn">
-                자주하는 질문
-            </a>
+            <a href="#" class="customer-btn">1:1 문의하기</a>
+            <a href="#" class="customer-btn">자주하는 질문</a>
         </div>
 
     </div>
@@ -1141,7 +1002,6 @@ button {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ELEMENTS */
     const searchInput = document.getElementById("productSearch");
     const filterButtons = document.querySelectorAll(".filter-btn");
     const products = document.querySelectorAll(".product-card");
@@ -1159,12 +1019,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let activeCategory = "all";
 
-    /* FORMAT PRICE */
     function formatPrice(price) {
         return new Intl.NumberFormat("ko-KR").format(price) + "원";
     }
 
-    /* GET PRODUCT INFORMATION FROM EXISTING PRODUCT CARDS */
     const productList = [];
     const productById = {};
 
@@ -1191,7 +1049,6 @@ document.addEventListener("DOMContentLoaded", function () {
         productList.push(productData);
         productById[id] = productData;
 
-        /* ADD BUTTON TO EACH PRODUCT */
         const addButton = document.createElement("button");
 
         addButton.type = "button";
@@ -1221,7 +1078,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 ) {
                     cart[id] = quantity;
                 }
-
             });
         }
 
@@ -1229,12 +1085,10 @@ document.addEventListener("DOMContentLoaded", function () {
         cart = {};
     }
 
-    /* SAVE CART */
     function saveCart() {
         localStorage.setItem("kbeautyMallCart", JSON.stringify(cart));
     }
 
-    /* ESCAPE HTML */
     function escapeHTML(value) {
         return String(value).replace(/[&<>"']/g, function (character) {
             const entities = {
@@ -1269,10 +1123,8 @@ document.addEventListener("DOMContentLoaded", function () {
             subtotal += product.price * quantity;
         });
 
-        /* UPDATE TOP CART COUNT */
         cartCount.textContent = totalQuantity;
 
-        /* EMPTY CART */
         if (cartProductIds.length === 0) {
 
             cartEmpty.style.display = "block";
@@ -1285,7 +1137,6 @@ document.addEventListener("DOMContentLoaded", function () {
         cartEmpty.style.display = "none";
         cartSummary.hidden = false;
 
-        /* CREATE CART ITEMS */
         cartItemsContainer.innerHTML = cartProductIds.map(function (id) {
 
             const product = productById[id];
@@ -1366,7 +1217,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }).join("");
 
-        /* UPDATE TOTAL */
         cartTotalCount.textContent = totalQuantity + "개";
         cartSubtotal.textContent = formatPrice(subtotal);
         cartFinalTotal.textContent = formatPrice(subtotal);
@@ -1419,7 +1269,6 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (action === "remove") {
 
             delete cart[id];
-
         }
 
         saveCart();
@@ -1452,7 +1301,6 @@ document.addEventListener("DOMContentLoaded", function () {
             behavior: "smooth",
             block: "start"
         });
-
     });
 
     /* SEARCH AND CATEGORY FILTER */
@@ -1487,17 +1335,14 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 product.style.display = "none";
             }
-
         });
 
         noResults.style.display =
             visibleCount === 0 ? "block" : "none";
     }
 
-    /* SEARCH */
     searchInput.addEventListener("input", filterProducts);
 
-    /* CATEGORY FILTER */
     filterButtons.forEach(function (button) {
 
         button.addEventListener("click", function () {
@@ -1512,10 +1357,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             filterProducts();
         });
-
     });
 
-    /* INITIAL CART DISPLAY */
     renderCart();
 
 });
