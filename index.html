@@ -24,6 +24,32 @@ button {
     font-family: inherit;
 }
 
+/* GLOWLY LOGO - NEW */
+.site-header {
+    width: 100%;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 40px;
+    background: #fff;
+    border-bottom: 1px solid #f0e8eb;
+}
+
+.glowly-logo {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 68px;
+    font-weight: 700;
+    letter-spacing: -2.5px;
+    color: #292124;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.glowly-logo span {
+    color: #d98ca4;
+}
+
 /* BANNER */
 .banner-container {
     width: 100%;
@@ -594,6 +620,15 @@ button {
 }
 
 @media (max-width: 560px) {
+    .site-header {
+        height: 85px;
+        padding: 0 20px;
+    }
+
+    .glowly-logo {
+        font-size: 48px;
+    }
+
     .products-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
@@ -667,6 +702,13 @@ button {
 </head>
 
 <body>
+
+<!-- GLOWLY LOGO - NEW -->
+<header class="site-header">
+    <a href="#" class="glowly-logo" aria-label="Glowly">
+        Glow<span>ly</span>
+    </a>
+</header>
 
 <!-- BANNER -->
 <div class="banner-container">
