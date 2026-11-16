@@ -1399,41 +1399,40 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 </html>
 <script>
- <script>
-  window.VWO = window.VWO || [];
-  window.VWO.push(['onVariationApplied', function(data) {
-    const expId = String(data.campId || data.id || '');
-    const varId = String(data.varId || data.combi || '');
-    if (expId === '1' && varId === '2') {
-      const targetDiscounts = {
-        "달바 (d'Alba)": { old: "53,625원", current: "42,900원 (20% SALE)" },
-        "셀리맥스 (celimax)": { old: "46,250원", current: "37,000원 (20% SALE)" },
-        "클리오 (CLIO)": { old: "40,000원", current: "32,000원 (20% SALE)" },
-        "아누아 (ANUA)": { old: "40,000원", current: "32,000원 (20% SALE)" },
-        "OHORA": { old: "18,500원", current: "14,800원 (20% SALE)" },
-        "PERIPERA (페리페라)": { old: "16,250원", current: "13,000원 (20% SALE)" },
-        "BEAUTY OF JOSEON": { old: "22,500원", current: "18,000원 (20% SALE)" },
-        "AROMATICA (아로마티카)": { old: "25,000원", current: "20,000원 (20% SALE)" }
-      };
+  const targetDiscounts = {
+    "달바 (d'Alba)": { old: "53,625원", current: "42,900원 (20% SALE)" },
+    "셀리맥스 (celimax)": { old: "46,250원", current: "37,000원 (20% SALE)" },
+    "클리오 (CLIO)": { old: "40,000원", current: "32,000원 (20% SALE)" },
+    "아누아 (ANUA)": { old: "40,000원", current: "32,000원 (20% SALE)" },
+    "OHORA": { old: "18,500원", current: "14,800원 (20% SALE)" },
+    "PERIPERA (페리페라)": { old: "16,250원", current: "13,000원 (20% SALE)" },
+    "BEAUTY OF JOSEON": { old: "22,500원", current: "18,000원 (20% SALE)" },
+    "AROMATICA (아로마티카)": { old: "25,000원", current: "20,000원 (20% SALE)" }
+  };
 
-      function renderVariantB() {
-        document.querySelectorAll('.product-card').forEach(card => {
-          const brandEl = card.querySelector('.product-brand');
-          const priceEl = card.querySelector('.product-price');
-          if (brandEl && priceEl && !priceEl.dataset.vwoApplied) {
-            const brandName = brandEl.textContent.trim();
-            if (targetDiscounts[brandName]) {
-              const info = targetDiscounts[brandName];
-              priceEl.innerHTML = '<span style="text-decoration:line-through;color:#888;font-size:13px;font-weight:normal;">' + info.old + '</span><br><span style="color:#f43142;font-weight:800;">' + info.current + '</span>';
-              priceEl.dataset.vwoApplied = "true";
-            }
-          }
-        });
+  function checkIsVariantB() {
+    const rawData = document.cookie + " " + JSON.stringify(localStorage);
+    return rawData.includes('_exp_1_combi=2') || 
+           rawData.includes('_exp_1_combi~2') || 
+           (window._vwo_exp && window._vwo_exp['1'] && String(window._vwo_exp['1'].combination_chosen) === '2') ||
+           window.location.search.includes('vwo_b=1');
+  }
+
+  function renderVariantB() {
+    if (!checkIsVariantB()) return;
+    document.querySelectorAll('.product-card').forEach(card => {
+      const brandEl = card.querySelector('.product-brand');
+      const priceEl = card.querySelector('.product-price');
+      if (brandEl && priceEl && !priceEl.dataset.vwoApplied) {
+        const brandName = brandEl.textContent.trim();
+        if (targetDiscounts[brandName]) {
+          const info = targetDiscounts[brandName];
+          priceEl.innerHTML = '<span style="text-decoration:line-through;color:#888;font-size:13px;font-weight:normal;">' + info.old + '</span><br><span style="color:#f43142;font-weight:800;">' + info.current + '</span>';
+          priceEl.dataset.vwoApplied = "true";
+        }
       }
+    });
+  }
 
-      renderVariantB();
-      setTimeout(renderVariantB, 300);
-      setTimeout(renderVariantB, 800);
-    }
-  }]);
+  setInterval(renderVariantB, 250);
 </script>
