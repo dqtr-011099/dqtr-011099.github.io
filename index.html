@@ -972,28 +972,28 @@ button {
 
 <!-- GLOWLY CHECKOUT -->
 <section class="checkout-section" id="checkoutSection">
-    <h2>💳 Thanh toán đơn hàng</h2>
+    <h2>💳 주문 결제</h2>
 
     <form id="checkoutForm">
-        <label>Họ và tên</label>
+        <label>이름</label>
         <input type="text" id="customerName" required placeholder="Nhập họ tên">
 
-        <label>Số điện thoại</label>
+        <label>전화번호</label>
         <input type="tel" id="customerPhone" required placeholder="Nhập số điện thoại">
 
-        <label>Địa chỉ nhận hàng</label>
+        <label>배송지 주소</label>
         <textarea id="customerAddress" required placeholder="Nhập địa chỉ giao hàng"></textarea>
 
-        <label>Phương thức thanh toán</label>
+        <label>결제 방법</label>
         <select id="paymentMethod" required>
-            <option value="">-- Chọn phương thức --</option>
-            <option value="Thẻ ngân hàng">Thẻ ngân hàng</option>
-            <option value="Chuyển khoản ngân hàng">Chuyển khoản ngân hàng</option>
+            <option value="">-- 방식 선택 --</option>
+            <option value="Thẻ ngân hàng">카드</option>
+            <option value="Chuyển khoản ngân hàng">은행 송금</option>
             <option value="PayPal">PayPal</option>
-            <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
+            <option value="Thanh toán khi nhận hàng">상품 수령 시 결제</option>
         </select>
 
-        <button type="submit">XÁC NHẬN ĐẶT HÀNG</button>
+        <button type="submit">주문 확인</button>
         <p id="checkoutMessage"></p>
     </form>
 </section>
