@@ -1399,9 +1399,12 @@ document.addEventListener("DOMContentLoaded", function () {
 </body>
 </html>
 <script>
+ <script>
   window.VWO = window.VWO || [];
   window.VWO.push(['onVariationApplied', function(data) {
-    if (data[1] == 1 && data[2] == 2) {
+    const expId = String(data.campId || data.id || '');
+    const varId = String(data.varId || data.combi || '');
+    if (expId === '1' && varId === '2') {
       const targetDiscounts = {
         "달바 (d'Alba)": { old: "53,625원", current: "42,900원 (20% SALE)" },
         "셀리맥스 (celimax)": { old: "46,250원", current: "37,000원 (20% SALE)" },
@@ -1421,7 +1424,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const brandName = brandEl.textContent.trim();
             if (targetDiscounts[brandName]) {
               const info = targetDiscounts[brandName];
-              priceEl.innerHTML = `<span style="text-decoration:line-through;color:#888;font-size:13px;font-weight:normal;">${info.old}</span><br><span style="color:#f43142;font-weight:800;">${info.current}</span>`;
+              priceEl.innerHTML = '<span style="text-decoration:line-through;color:#888;font-size:13px;font-weight:normal;">' + info.old + '</span><br><span style="color:#f43142;font-weight:800;">' + info.current + '</span>';
               priceEl.dataset.vwoApplied = "true";
             }
           }
