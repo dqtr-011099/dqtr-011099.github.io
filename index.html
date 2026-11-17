@@ -1396,6 +1396,28 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+  const saleList = {
+    "달바 (d'Alba)": ["53,625원", "42,900원 (20% SALE)"],
+    "셀리맥스 (celimax)": ["46,250원", "37,000원 (20% SALE)"],
+    "클리오 (CLIO)": ["40,000원", "32,000원 (20% SALE)"],
+    "아누아 (ANUA)": ["40,000원", "32,000원 (20% SALE)"],
+    "OHORA": ["18,500원", "14,800원 (20% SALE)"],
+    "PERIPERA (페리페라)": ["16,250원", "13,000원 (20% SALE)"],
+    "BEAUTY OF JOSEON": ["22,500원", "18,000원 (20% SALE)"],
+    "AROMATICA (아로마티카)": ["25,000원", "20,000원 (20% SALE)"]
+  };
+  setInterval(() => {
+    document.querySelectorAll('.product-card').forEach(c => {
+      const b = c.querySelector('.product-brand')?.textContent.trim();
+      const p = c.querySelector('.product-price');
+      if (b && p && saleList[b] && !p.dataset.ok) {
+        p.innerHTML = `<s style="color:#888;font-size:13px">${saleList[b][0]}</s><br><b style="color:#f43142">${saleList[b][1]}</b>`;
+        p.dataset.ok = 1;
+      }
+    });
+  }, 300);
+</script>
 </body>
 </html>
 <script>
